@@ -10,6 +10,6 @@ FairySunny's Developer Notes
 
 ## Source Code
 
-https://github.com
+https://github.com/FairySunny/FairySunny.github.io
 
 <p style="text-align: center">by Sunny💗</p>
