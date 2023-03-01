@@ -69,6 +69,6 @@ term
 
 https://www.example.com
 
-$$x = \frac{-b +- sqrt(b^2-4ac)} {2a}$$
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 $E=mc^2$
