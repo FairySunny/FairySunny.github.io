@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FSDN</title>
+    <link rel="stylesheet" href="https://unpkg.com/github-markdown-css@5.2.0/github-markdown.css">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/katex@0.16.4/dist/katex.min.css">
+    <script src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+  </head>
+  <body>
+    <script>
+      (function(){
+        const path = location.search.substring(1) || 'index'
+        fetch(`md/${path}.md`)
+          .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
+          .then(text => {
+            const converter = new showdown.Converter()
+            converter.setFlavor('github')
+            const el = document.createElement('p')
+            el.className = 'markdown-body'
+            el.style = 'min-width: 200px; max-width: 980px; margin: 0 auto;'
+            el.innerHTML = converter.makeHtml(text)
+            document.body.appendChild(el)
+            hljs.highlightAll()
+            renderMathInElement(el, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false }
+              ]
+            })
+          })
+          .catch(e => alert(e))
+      }())
+    </script>
+  </body>
+</html>
