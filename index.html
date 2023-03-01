@@ -22,7 +22,7 @@
             converter.setFlavor('github')
             const el = document.createElement('p')
             el.className = 'markdown-body'
-            el.style = 'min-width: 200px; max-width: 980px; margin: 0 auto;'
+            el.style = 'min-width: 200px; max-width: 980px; margin: 30px auto;'
             el.innerHTML = converter.makeHtml(text)
             document.body.appendChild(el)
             hljs.highlightAll()

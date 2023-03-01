@@ -2,13 +2,23 @@
 
 FairySunny's Developer Notes
 
-## Contents
+## 目录
 
-### Misc
+### 服务器运维
+
+- [Nginx](index.html?server-maintenance/nginx)
+- [Certbot](index.html?server-maintenance/certbot)
+
+### 小技巧
+
+- [获取百度文库文本](index.html?tricks/wenkudown)
+- [获取4399游戏swf](index.html?tricks/4399swf)
+
+### 杂项
 
 - [Markdown Test](index.html?misc/markdown-test)
 
-## Source Code
+## 源代码
 
 https://github.com/FairySunny/FairySunny.github.io
 
