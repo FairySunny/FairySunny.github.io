@@ -15,6 +15,7 @@ FairySunny's Developer Notes
 
 ### 小技巧
 
+- [Windows快捷脚本](index.html?tricks/windows-scripts)
 - [获取百度文库文本](index.html?tricks/wenkudown)
 - [获取4399游戏swf](index.html?tricks/4399swf)
 
