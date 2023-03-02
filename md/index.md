@@ -4,6 +4,10 @@ FairySunny's Developer Notes
 
 ## 目录
 
+### 软件安装与使用
+
+- [安装及配置Arch Linux](index.html?software-usage/install-archlinux)
+
 ### 服务器运维
 
 - [Nginx](index.html?server-maintenance/nginx)
