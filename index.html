@@ -34,6 +34,8 @@
                 { left: '$', right: '$', display: false }
               ]
             })
+            const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
+            document.title = title ? `FSDN - ${title}` : 'FSDN'
           })
           .catch(e => alert(e))
       }())

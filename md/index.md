@@ -1,4 +1,6 @@
-<h1 id="FSDN"><span style="background: linear-gradient(to right, cyan, blue); background-clip: text; -webkit-background-clip: text; color: transparent;">FSDN</span></h1>
+<h1 style="display: none">FairySunny's Developer Notes</h1>
+
+<h1 id="FSDN" style="margin-top: 0"><span style="background: linear-gradient(to right, cyan, blue); background-clip: text; -webkit-background-clip: text; color: transparent;">FSDN</span></h1>
 
 FairySunny's Developer Notes
 
