@@ -38,7 +38,7 @@ References:
 | Header      | Title       |
 | Paragraph   | Text        |
 
-```
+```json
 {
   "firstName": "John",
   "lastName": "Smith",

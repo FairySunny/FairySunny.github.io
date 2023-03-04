@@ -23,7 +23,7 @@
 
 > 参考 https://wiki.archlinux.org/title/NetworkManager
 
-```
+```sh
 systemctl enable NetworkManager
 systemctl start NetworkManager
 nmcli device wifi connect xxx
@@ -65,22 +65,24 @@ nmcli device wifi connect xxx
 - 将`/etc/mkinitcpio.conf`中的`MODULES=()`改为`MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
 - `sudo mkinitcpio -p linux`
 - 创建`/etc/pacman.d/hooks/nvidia.hook`，内容为：
-```
-[Trigger]
-Operation=Install
-Operation=Upgrade
-Operation=Remove
-Type=Package
-Target=nvidia
-Target=linux
 
-[Action]
-Description=Update NVIDIA module in initcpio
-Depends=mkinitcpio
-When=PostTransaction
-NeedsTargets
-Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
-```
+    ```ini
+    [Trigger]
+    Operation=Install
+    Operation=Upgrade
+    Operation=Remove
+    Type=Package
+    Target=nvidia
+    Target=linux
+
+    [Action]
+    Description=Update NVIDIA module in initcpio
+    Depends=mkinitcpio
+    When=PostTransaction
+    NeedsTargets
+    Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+    ```
+
 - 重启
 
 ### paru
@@ -106,12 +108,14 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /
 - `sudo pacman -S fcitx5-im`
 - `sudo pacman -S fcitx5-chinese-addons`
 - 在`/etc/environment`中添加：
-```
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-```
+
+    ```
+    GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+    SDL_IM_MODULE=fcitx
+    ```
+
 - 在Fcitx 5 Configuration中配置
 
 ### gnome配置
@@ -119,8 +123,8 @@ SDL_IM_MODULE=fcitx
 - 在Settings -> Power中设置屏幕行为
 - 在Settings -> Mouse & Touchpad以及Tweaks -> Keyboard & Mouse中设置触控板行为
 - 在Settings -> Keyboard中设置快捷键
-  - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
-  - 将Typing中的快捷键设置为Disabled后，即可在Fcitx 5 Configuration中将输入法切换设置为Super+Space
+    - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
+    - 将Typing中的快捷键设置为Disabled后，即可在Fcitx 5 Configuration中将输入法切换设置为Super+Space
 
 ### 非整数倍缩放
 

@@ -21,7 +21,7 @@
 
 ## 反向代理
 
-```text
+```
 proxy_pass ...;
 # 以下内容可以写在单独文件中并include
 proxy_set_header Host $host; # 请求头Host指定为本服务器主机名
@@ -33,7 +33,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 ## websocket反向代理
 
-```text
+```
 map $http_upgrade $connection_upgrade {
     default upgrade;
     '' close;
@@ -72,7 +72,7 @@ server {
 
 ### snippets/https-example-com.conf
 
-```text
+```
 ssl_certificate "/etc/nginx/cert/example.com/fullchain.pem";
 ssl_certificate_key "/etc/nginx/cert/example.com/privkey.pem";
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -92,7 +92,7 @@ resolver_timeout 10s;
 
 ### snippets/proxy.conf
 
-```text
+```
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -100,7 +100,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 ### sites-enabled/www.on
 
-```text
+```
 server {
     server_name _;
     listen 80 default_server;
@@ -167,7 +167,7 @@ server {
 
 ### sites-enabled/test.on
 
-```text
+```
 server {
     server_name test.example.com;
     listen 443 ssl;
@@ -190,7 +190,7 @@ server {
 
 ## whoami - 显示请求者信息的简易测试网站
 
-```text
+```
 location / {
     add_header Content-Type 'text/html; charset=utf-8';
     return 200 '<h1>whoami6</h1><p><b>IP:</b> $remote_addr</p><p><b>Port:</b> $remote_port</p><p><b>UA:</b> $http_user_agent</p>';

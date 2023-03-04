@@ -27,6 +27,7 @@
             el.style = 'min-width: 200px; max-width: 980px; margin: 30px auto;'
             el.innerHTML = converter.makeHtml(text)
             document.body.appendChild(el)
+            hljs.configure({ languages: [] })
             hljs.highlightAll()
             renderMathInElement(el, {
               delimiters: [
