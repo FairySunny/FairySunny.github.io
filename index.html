@@ -8,12 +8,54 @@
     <link rel="stylesheet" href="https://unpkg.com/github-markdown-css@5.2.0/github-markdown.css">
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css">
     <link rel="stylesheet" href="https://unpkg.com/katex@0.16.4/dist/katex.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tocbot@4.20.1/dist/tocbot.css">
     <script src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js"></script>
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
     <script src="https://unpkg.com/katex@0.16.4/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <script src="https://unpkg.com/tocbot@4.20.1/dist/tocbot.min.js"></script>
+    <style>
+      body {
+        margin: 30px 20px;
+      }
+      .main {
+        margin: 0 auto;
+        min-width: 200px;
+        max-width: 980px;
+        box-sizing: border-box;
+        padding-right: 300px;
+      }
+      .toc {
+        position: fixed;
+        top: 30px;
+        right: calc((100vw - 980px) / 2);
+        width: 250px;
+        height: calc(100vh - 60px);
+        font-size: 18px;
+        line-height: 30px;
+      }
+      .toc-list {
+        padding-left: 15px;
+      }
+      a.toc-link {
+        text-decoration: none;
+      }
+      .is-active-link::before {
+        background-color: #77ace9;
+      }
+      @media screen and (max-width: 1020px) {
+        .main {
+          padding-right: 0;
+        }
+        .toc {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body style="margin: 20px">
+  <body>
+    <div class="main"></div>
+    <div class="toc"></div>
     <script>
       (function(){
         const path = location.search.substring(1) || 'index'
@@ -24,9 +66,8 @@
             converter.setFlavor('github')
             const el = document.createElement('p')
             el.className = 'markdown-body'
-            el.style = 'min-width: 200px; max-width: 980px; margin: 30px auto;'
             el.innerHTML = converter.makeHtml(text)
-            document.body.appendChild(el)
+            document.querySelector('.main').appendChild(el)
             hljs.configure({ languages: [] })
             hljs.highlightAll()
             renderMathInElement(el, {
@@ -35,6 +76,10 @@
                 { left: '$', right: '$', display: false }
               ],
               throwOnError: false
+            })
+            tocbot.init({
+              tocSelector: '.toc',
+              contentSelector: '.markdown-body'
             })
             const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
             document.title = title ? `FSDN - ${title}` : 'FSDN'
