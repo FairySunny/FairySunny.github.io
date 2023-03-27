@@ -156,6 +156,13 @@ nmcli device wifi connect xxx
 - 在`/etc/profile`中添加`imwheel`
 - 完成后可能无法使用Ctrl+滚轮，此时可以进行配置或改用Ctrl+加号及Ctrl+减号
 
+### 打开文件夹默认应用为vscode而非files
+
+> 参考 https://www.reddit.com/r/gnome/comments/8gtmkw/how_to_change_what_application_open_folders/
+
+- `gio mime inode/directory`查看打开文件夹默认应用
+- `gio mime inode/directory org.gnome.Nautilus.desktop`，会修改配置文件`~/.config/mimeapps.list`
+
 ### 连接蓝牙耳机（？）
 
 - `sudo pacman -S pipewire-pulse` （？）
