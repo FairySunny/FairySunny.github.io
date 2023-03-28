@@ -20,6 +20,7 @@ FairySunny's Developer Notes
 - [Windows快捷脚本](index.html?tricks/windows-scripts)
 - [获取百度文库文本](index.html?tricks/wenkudown)
 - [获取4399游戏swf](index.html?tricks/4399swf)
+- [移除CSDN“关注博主即可阅读全文”](index.html?tricks/csdnshow)
 
 ### 杂项
 
