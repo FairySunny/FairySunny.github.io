@@ -1,9 +1,21 @@
 # Certbot
 
 > 参考：https://eff-certbot.readthedocs.io/en/stable/
-> 上次更新：2023-3-29
+> 上次更新：2023-3-31
 
 > 注意，certbot包括无插件版和有插件版，无插件版通常使用snap安装，有插件版通常使用pip或pip3安装，两者安装一个即可，同时安装可能会导致问题
+
+## Dockerfile（可选）
+
+```Dockerfile
+FROM python:3.9-alpine
+
+# 若在国外环境则去掉换源；若无需插件则将 certbot-dns-插件 改为 certbot
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip install certbot-dns-插件
+
+VOLUME /etc/letsencrypt
+```
 
 ## 注册
 
@@ -14,7 +26,7 @@
 1. 执行
     - 手动: `certbot certonly --manual --preferred-challenges dns-01 -d "example.com,*.example.com"`
     - 自动（脚本）: `certbot certonly --manual --manual-auth-hook 添加DNS记录的脚本 --manual-cleanup-hook 删除DNS记录的脚本 --preferred-challenges dns-01 -d "example.com,*.example.com" -n`
-    - 自动（dns插件如godaddy、tencentcloud）: `certbot certonly --authenticator dns-xxx --dns-xxx-credentials 配置文件 --dns-xxx-propagation-seconds 120 -d "example.com,*.example.com" -n`
+    - 自动（dns插件如godaddy、tencentcloud）: `certbot certonly --authenticator dns-插件 --dns-插件-credentials 配置文件 --dns-插件-propagation-seconds 120 -d "example.com,*.example.com" -n`
 2. 手动: 会提示添加解析记录，添加好之后按回车继续
 4. 证书为 `/etc/letsencrypt/live/example.com/` 下的 `fullchain.pem` 和 `privkey.pem`
 3. 非root用户若需访问证书，将 `/etc/letsencrypt/live/example.com/privkey.pem` 改为访问者组、0640
