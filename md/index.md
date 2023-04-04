@@ -26,9 +26,22 @@ FairySunny's Developer Notes
 
 - [Markdown Test](index.html?misc/markdown-test)
 
+## 关于
+
+<p style="text-align: center">
+<br>
+<img style="border-radius: 50%" src="https://foruda.gitee.com/avatar/1680592789363171979/2238128_thhh_sunny_1680592789.png">
+<br><br>
+<span style="font-size: 25px; font-weight: bold">FairySunny</span>
+<br>
+<a href="https://gitee.com/thhh_sunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
+</p>
+
 ## 源代码
 
 https://github.com/FairySunny/FairySunny.github.io
+
+## Funky!
 
 <p><iframe style="border: none; width: 100%; height: 500px" src="https://thhh_sunny.gitee.io/funky/"></iframe></p>
 
