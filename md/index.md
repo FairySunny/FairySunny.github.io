@@ -28,6 +28,8 @@ FairySunny's Developer Notes
 - [SpaceCadetPinball](https://thhh_sunny.gitee.io/space-cadet-pinball-web) | [:page_facing_up:源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [:package:构建](https://gitee.com/thhh_sunny/space-cadet-pinball-web)
 - [WebGL生命游戏](https://thhh_sunny.gitee.io/shengmingyouxi-webgl) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/shengmingyouxi-webgl)
 - [NML](https://thhh_sunny.gitee.io/nml) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/nml)
+- [Site Not Ready](https://thhh_sunny.gitee.io/site-not-ready) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/site-not-ready)
+- [➈ Funky](https://thhh_sunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/funky)
 
 ### 杂项
 
