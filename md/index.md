@@ -22,6 +22,13 @@ FairySunny's Developer Notes
 - [获取4399游戏swf](index.html?tricks/4399swf)
 - [移除CSDN“关注博主即可阅读全文”](index.html?tricks/csdnshow)
 
+### Web应用展示
+
+- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [:page_facing_up:源代码](https://github.com/FairySunny/FairySunny.github.io)
+- [SpaceCadetPinball](https://thhh_sunny.gitee.io/space-cadet-pinball-web) | [:page_facing_up:源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [:package:构建](https://gitee.com/thhh_sunny/space-cadet-pinball-web)
+- [WebGL生命游戏](https://thhh_sunny.gitee.io/shengmingyouxi-webgl) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/shengmingyouxi-webgl)
+- [NML](https://thhh_sunny.gitee.io/nml) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/nml)
+
 ### 杂项
 
 - [Markdown Test](index.html?misc/markdown-test)
@@ -36,10 +43,6 @@ FairySunny's Developer Notes
 <br>
 <a href="https://gitee.com/thhh_sunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
 </p>
-
-## 源代码
-
-https://github.com/FairySunny/FairySunny.github.io
 
 ## Funky!
 
