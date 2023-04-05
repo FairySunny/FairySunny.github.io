@@ -50,4 +50,4 @@ FairySunny's Developer Notes
 
 <p><iframe style="border: none; width: 100%; height: 500px" src="https://thhh_sunny.gitee.io/funky/"></iframe></p>
 
-<p style="text-align: center">by Sunny💗</p>
+<p style="text-align: center">by Sunny💛</p>
