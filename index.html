@@ -59,7 +59,7 @@
     <script>
       (function(){
         const path = location.search.substring(1) || 'index'
-        fetch(`md/${path}.md`)
+        fetch(`/md/${path}.md`)
           .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
           .then(text => {
             const converter = new showdown.Converter()
@@ -68,8 +68,10 @@
             el.className = 'markdown-body'
             el.innerHTML = converter.makeHtml(text)
             document.querySelector('.main').appendChild(el)
+
             hljs.configure({ languages: [] })
             hljs.highlightAll()
+
             renderMathInElement(el, {
               delimiters: [
                 { left: '$$', right: '$$', display: true },
@@ -77,12 +79,23 @@
               ],
               throwOnError: false
             })
+
             tocbot.init({
               tocSelector: '.toc',
               contentSelector: '.markdown-body'
             })
+
             const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
             document.title = title ? `FSDN - ${title}` : 'FSDN'
+
+            const mdLinkPrefix = `${location.origin}/md/`
+            const mdLinkSuffix = '.md'
+            document.querySelectorAll('a').forEach(e => {
+              if (e.href.startsWith(mdLinkPrefix) && e.href.endsWith(mdLinkSuffix)) {
+                const name = e.href.substring(mdLinkPrefix.length, e.href.length - mdLinkSuffix.length)
+                e.href = `/index.html?${name}`
+              }
+            })
           })
           .catch(e => alert(e))
       }())

@@ -8,19 +8,19 @@ FairySunny's Developer Notes
 
 ### 软件安装与使用
 
-- [安装及配置Arch Linux](index.html?software-usage/install-archlinux)
+- [安装及配置Arch Linux](/md/software-usage/install-archlinux.md)
 
 ### 服务器运维
 
-- [Nginx](index.html?server-maintenance/nginx)
-- [Certbot](index.html?server-maintenance/certbot)
+- [Nginx](/md/server-maintenance/nginx.md)
+- [Certbot](/md/server-maintenance/certbot.md)
 
 ### 小技巧
 
-- [Windows快捷脚本](index.html?tricks/windows-scripts)
-- [获取百度文库文本](index.html?tricks/wenkudown)
-- [获取4399游戏swf](index.html?tricks/4399swf)
-- [移除CSDN“关注博主即可阅读全文”](index.html?tricks/csdnshow)
+- [Windows快捷脚本](/md/tricks/windows-scripts.md)
+- [获取百度文库文本](/md/tricks/wenkudown.md)
+- [获取4399游戏swf](/md/tricks/4399swf.md)
+- [移除CSDN“关注博主即可阅读全文”](/md/tricks/csdnshow.md)
 
 ### Web应用展示
 
@@ -33,7 +33,7 @@ FairySunny's Developer Notes
 
 ### 杂项
 
-- [Markdown Test](index.html?misc/markdown-test)
+- [Markdown Test](/md/misc/markdown-test.md)
 
 ## 关于
 
