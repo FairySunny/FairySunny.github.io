@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-1-10
+> 上次更新：2023-5-10
 
 ## 安装系统
 
@@ -143,18 +143,15 @@ nmcli device wifi connect xxx
 ### gnome主题
 
 - 在Extensions中打开User Themes
-- 在 https://gnome-loog.org/ 上下载主题
-- 将主题解压到`~/.themes`中，将图标解压到`~/.icons`中
+- 在 https://gnome-look.org/ 上下载主题
+- 将主题解压到`~/.themes`中，将图标（以及光标）解压到`~/.icons`中
 - 在Tweaks -> Appearance中设置主题与图标
 
 ### chrome、vscode等应用切换时滚动问题
 
-> 问题 https://gitlab.gnome.org/GNOME/mutter/-/issues/2281
-> 参考 https://github.com/microsoft/vscode/issues/28795
+> 参考 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
-- `sudo pacman -S imwheel`
-- 在`/etc/profile`中添加`imwheel`
-- 完成后可能无法使用Ctrl+滚轮，此时可以进行配置或改用Ctrl+加号及Ctrl+减号
+- 安装gnome扩展Alt+Tab Scroll Workaround
 
 ### 打开文件夹默认应用为vscode而非files
 
