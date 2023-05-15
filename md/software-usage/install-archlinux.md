@@ -13,7 +13,7 @@
 
 ### 预安装
 
-- nano
+- vim
 - sudo
 - networkmanager
 
@@ -36,11 +36,11 @@ nmcli device wifi connect xxx
 
 ### 设置visudo编辑器
 
-- 在`/etc/sudoers`里添加`Defaults editor=/usr/bin/nano`
+- 在`/etc/sudoers`里添加`Defaults editor=/usr/bin/vim`
 
 ### 设置sudo
 
-- 在visudo里取消注释`%wheel ALL=(ALL:ALL) NOPASSWD: ALL`
+- 在visudo里取消注释`%wheel ALL=(ALL:ALL) ALL`
 - `usermod -a -G wheel xxx`
 - 登出、切换用户
 
