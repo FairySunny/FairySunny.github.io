@@ -31,6 +31,13 @@ FairySunny's Developer Notes
 - [Site Not Ready](https://thhh_sunny.gitee.io/site-not-ready) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/site-not-ready)
 - [➈ Funky](https://thhh_sunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/funky)
 
+#### HTML Stuff
+
+单HTML文件小游戏/小工具/奇奇怪怪的东西
+
+:clipboard: [目录](https://thhh_sunny.gitee.io/html-stuff/)
+:page_facing_up: [源代码](https://gitee.com/thhh_sunny/html-stuff)
+
 ### 杂项
 
 - [Markdown Test](/md/misc/markdown-test.md)
