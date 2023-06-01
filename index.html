@@ -6,7 +6,6 @@
     <title>FSDN</title>
     <link rel="icon" href="icon.svg">
     <link rel="stylesheet" href="https://unpkg.com/github-markdown-css@5.2.0/github-markdown.css">
-    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css">
     <link rel="stylesheet" href="https://unpkg.com/katex@0.16.4/dist/katex.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tocbot@4.20.1/dist/tocbot.css">
     <script src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js"></script>
@@ -40,6 +39,20 @@
       a.toc-link {
         text-decoration: none;
       }
+      @media (prefers-color-scheme: dark) {
+        html {
+          color-scheme: dark;
+        }
+        body {
+          background-color: #0d1117;
+        }
+        .toc {
+          color: #c9d1d9;
+        }
+        .toc-link::before {
+          background-color: #30363d;
+        }
+      }
       .is-active-link::before {
         background-color: #77ace9;
       }
@@ -52,6 +65,23 @@
         }
       }
     </style>
+    <script>
+      (function(){
+        let linkE
+        function changeTheme(dark) {
+          if (linkE) {
+            document.head.removeChild(linkE)
+          }
+          linkE = document.createElement('link')
+          linkE.rel = 'stylesheet'
+          linkE.href = `https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github${dark ? '-dark' : ''}.min.css`
+          document.head.appendChild(linkE)
+        }
+        const query = matchMedia('(prefers-color-scheme: dark)')
+        changeTheme(query.matches)
+        query.addListener(e => changeTheme(e.matches))
+      }())
+    </script>
   </head>
   <body>
     <div class="main"></div>
