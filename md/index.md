@@ -25,18 +25,18 @@ FairySunny's Developer Notes
 ### Web应用展示
 
 - <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [:page_facing_up:源代码](https://github.com/FairySunny/FairySunny.github.io)
-- [SpaceCadetPinball](https://thhh_sunny.gitee.io/space-cadet-pinball-web) | [:page_facing_up:源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [:package:构建](https://gitee.com/thhh_sunny/space-cadet-pinball-web)
-- [WebGL生命游戏](https://thhh_sunny.gitee.io/shengmingyouxi-webgl) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/shengmingyouxi-webgl)
-- [NML](https://thhh_sunny.gitee.io/nml) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/nml)
-- [Site Not Ready](https://thhh_sunny.gitee.io/site-not-ready) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/site-not-ready)
-- [➈ Funky](https://thhh_sunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/thhh_sunny/funky)
+- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [:page_facing_up:源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [:package:构建](https://gitee.com/FairySunny/space-cadet-pinball-web)
+- [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [:page_facing_up:源代码](https://gitee.com/FairySunny/shengmingyouxi-webgl)
+- [NML](https://fairysunny.gitee.io/nml) | [:page_facing_up:源代码](https://gitee.com/FairySunny/nml)
+- [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [:page_facing_up:源代码](https://gitee.com/FairySunny/site-not-ready)
+- [➈ Funky](https://fairysunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/FairySunny/funky)
 
 #### HTML Stuff
 
 单HTML文件小游戏/小工具/奇奇怪怪的东西
 
-:clipboard: [目录](https://thhh_sunny.gitee.io/html-stuff/)
-:page_facing_up: [源代码](https://gitee.com/thhh_sunny/html-stuff)
+:clipboard: [目录](https://fairysunny.gitee.io/html-stuff/)
+:page_facing_up: [源代码](https://gitee.com/FairySunny/html-stuff)
 
 ### 杂项
 
@@ -50,11 +50,11 @@ FairySunny's Developer Notes
 <br><br>
 <span style="font-size: 25px; font-weight: bold">FairySunny</span>
 <br>
-<a href="https://gitee.com/thhh_sunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
+<a href="https://gitee.com/FairySunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
 </p>
 
 ## Funky!
 
-<p><iframe style="border: none; width: 100%; height: 500px" src="https://thhh_sunny.gitee.io/funky/"></iframe></p>
+<p><iframe style="border: none; width: 100%; height: 500px" src="https://fairysunny.gitee.io/funky/"></iframe></p>
 
 <p style="text-align: center">by Sunny💛</p>

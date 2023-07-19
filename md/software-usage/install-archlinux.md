@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-5-10
+> 上次更新：2023-7-19
 
 ## 安装系统
 
@@ -93,13 +93,13 @@ nmcli device wifi connect xxx
 
 - `paru -S google-chrome`
 
-### 字体
+### Win11字体
 
 > 参考
 > https://wiki.archlinux.org/title/Fonts
-> https://wiki.archlinux.org/title/Localization/Chinese#Fonts
+> https://wiki.archlinux.org/title/Microsoft_fonts
 
-- `sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts`
+- `sudo paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
 
 ### 输入法
 
