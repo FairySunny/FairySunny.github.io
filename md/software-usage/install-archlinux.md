@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-7-19
+> 上次更新：2023-7-21
 
 ## 安装系统
 
@@ -139,6 +139,8 @@ nmcli device wifi connect xxx
 - 安装Chrome插件GNOME Shell integration
 - `paru -S gnome-browser-connector`
 - 在 https://extensions.gnome.org/ 上安装扩展
+
+> 或使用flatpak安装Extension Manager
 
 ### gnome主题
 
