@@ -46,6 +46,12 @@ nmcli device wifi connect xxx
 
 ## 基础问题
 
+### 禁用蜂鸣器
+
+> 参考 https://wiki.archlinux.org/title/Kernel_module
+
+- 在`/etc/modprobe.d/nobeep.conf`里添加`blacklist pcspkr`
+
 ### EFI分区空间不足（EFI分区挂载在boot目录下）
 
 - 删除`/boot/initramfs-linux-fallback.img`
