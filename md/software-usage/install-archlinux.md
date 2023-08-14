@@ -129,7 +129,7 @@ nmtui
 > https://wiki.archlinux.org/title/Fonts
 > https://wiki.archlinux.org/title/Microsoft_fonts
 
-- `sudo paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
+- `paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
 
 ### 输入法
 
