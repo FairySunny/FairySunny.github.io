@@ -136,6 +136,23 @@ nmtui
 
 ### 输入法
 
+#### Option 1: IBus
+
+> 参考 https://wiki.archlinux.org/title/IBus
+
+- `sudo pacman -S ibus-pinyin`
+- 在`/etc/environment`中添加：
+
+    ```
+    GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+    ```
+
+- 在Settings -> Keyboard -> Input Sources中添加Chinese (Pinyin)
+
+#### Option 2: Fcitx5
+
 > 参考 https://wiki.archlinux.org/title/Fcitx5
 
 - `sudo pacman -S fcitx5-im`
@@ -146,18 +163,16 @@ nmtui
     GTK_IM_MODULE=fcitx
     QT_IM_MODULE=fcitx
     XMODIFIERS=@im=fcitx
-    SDL_IM_MODULE=fcitx
     ```
 
-- 在Fcitx 5 Configuration中配置
+- 在Fcitx 5 Configuration中配置（在Settings -> Keyboard -> Keyboard Shortcuts中将Typing中的快捷键设置为Disabled才可在Fcitx 5 Configuration中将输入法切换设置为Super+Space）
 
 ### gnome配置
 
 - 在Settings -> Power以及Settings -> Privacy -> Screen Lock中设置屏幕行为
 - 在Settings -> Mouse & Touchpad以及Tweaks -> Keyboard & Mouse中设置触控板行为
-- 在Settings -> Keyboard中设置快捷键
+- 在Settings -> Keyboard -> Keyboard Shortcuts中设置快捷键
     - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
-    - 将Typing中的快捷键设置为Disabled后，即可在Fcitx 5 Configuration中将输入法切换设置为Super+Space
 
 ### 非整数倍缩放
 
