@@ -72,7 +72,6 @@ nmtui
 - gnome-control-center (Settings)
 - gnome-disk-utility (Disks)
 - gnome-system-monitor (System Monitor)
-- gnome-text-editor (gedit)
 - nautilus (Files)
 - xdg-desktop-portal-gnome
 - xdg-user-dirs-gtk
@@ -80,6 +79,10 @@ nmtui
 - gedit
 - gnome-terminal (Terminal)
 - gnome-tweaks
+
+#### 启用gdm
+
+- `sudo systemctl enable gdm.service`
 
 ### nvidia驱动
 
