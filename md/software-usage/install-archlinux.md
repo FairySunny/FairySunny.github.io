@@ -60,7 +60,26 @@ nmtui
 
 ### gnome桌面
 
+#### Option 1
+
 - `sudo pacman -S gnome gnome-tweaks`
+
+#### Option 2
+
+- baobab (Disk Usage Analyzer)
+- eog (Image Viewer)
+- gdm
+- gnome-control-center (Settings)
+- gnome-disk-utility (Disks)
+- gnome-system-monitor (System Monitor)
+- gnome-text-editor (gedit)
+- nautilus (Files)
+- xdg-desktop-portal-gnome
+- xdg-user-dirs-gtk
+- file-roller (Archive Manager)
+- gedit
+- gnome-terminal (Terminal)
+- gnome-tweaks
 
 ### nvidia驱动
 
@@ -96,6 +115,12 @@ nmtui
 
 ### chrome
 
+#### Option 1: Flatpak
+
+- `flatpak install -u flathub com.google.Chrome`
+
+#### Option 2: AUR
+
 - `paru -S google-chrome`
 
 ### Win11字体
@@ -125,7 +150,7 @@ nmtui
 
 ### gnome配置
 
-- 在Settings -> Power中设置屏幕行为
+- 在Settings -> Power以及Settings -> Privacy -> Screen Lock中设置屏幕行为
 - 在Settings -> Mouse & Touchpad以及Tweaks -> Keyboard & Mouse中设置触控板行为
 - 在Settings -> Keyboard中设置快捷键
     - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
@@ -141,11 +166,15 @@ nmtui
 
 ### gnome扩展
 
+#### Option 1: Flatpak
+
+- `flatpak install -u flathub com.mattjakeman.ExtensionManager`
+
+#### Option 2: Chrome插件
+
 - 安装Chrome插件GNOME Shell integration
 - `paru -S gnome-browser-connector`
 - 在 https://extensions.gnome.org/ 上安装扩展
-
-> 或使用flatpak安装Extension Manager
 
 ### gnome主题
 
