@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-7-21
+> 上次更新：2023-8-14
 
 ## 安装系统
 
@@ -16,6 +16,7 @@
 - vim
 - sudo
 - networkmanager
+- man-db man-pages texinfo
 
 ## 基础配置
 
@@ -26,7 +27,7 @@
 ```sh
 systemctl enable NetworkManager
 systemctl start NetworkManager
-nmcli device wifi connect xxx
+nmtui
 ```
 
 ### 创建用户
@@ -34,13 +35,11 @@ nmcli device wifi connect xxx
 - `useradd xxx -m -U`
 - `passwd xxx`
 
-### 设置visudo编辑器
-
-- 在`/etc/sudoers`里添加`Defaults editor=/usr/bin/vim`
-
 ### 设置sudo
 
-- 在visudo里取消注释`%wheel ALL=(ALL:ALL) ALL`
+- `EDITOR=vim visudo`
+- 添加`Defaults editor=/usr/bin/vim`
+- 取消注释`%wheel ALL=(ALL:ALL) ALL`
 - `usermod -a -G wheel xxx`
 - 登出、切换用户
 
