@@ -136,20 +136,13 @@ nmtui
 
 ### 输入法
 
-#### Option 1: IBus
+#### Option 1: IBus (Rime)
 
 > 参考 https://wiki.archlinux.org/title/IBus
 
-- `sudo pacman -S ibus-pinyin`
-- 在`/etc/environment`中添加：
-
-    ```
-    GTK_IM_MODULE=fcitx
-    QT_IM_MODULE=fcitx
-    XMODIFIERS=@im=fcitx
-    ```
-
-- 在Settings -> Keyboard -> Input Sources中添加Chinese (Pinyin)
+- `sudo pacman -S ibus-rime`
+- （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
+- 按F4选择简体
 
 #### Option 2: Fcitx5
 
