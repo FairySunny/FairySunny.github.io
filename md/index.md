@@ -32,6 +32,7 @@ FairySunny's Developer Notes
 - [➈ Funky](https://fairysunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/FairySunny/funky)
 - [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [:page_facing_up:源代码](https://gitee.com/FairySunny/mc-calc)
 - [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [:page_facing_up:源代码](https://gitee.com/FairySunny/tiaozhan-homepage)
+- [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [:page_facing_up:源代码](https://gitee.com/FairySunny/tuxun-panorama)
 
 #### HTML Stuff
 
