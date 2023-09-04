@@ -17,6 +17,7 @@
       body {
         margin: 30px 20px;
       }
+
       .main {
         margin: 0 auto;
         min-width: 200px;
@@ -24,6 +25,7 @@
         box-sizing: border-box;
         padding-right: 300px;
       }
+
       .toc {
         position: fixed;
         top: 30px;
@@ -33,35 +35,80 @@
         font-size: 18px;
         line-height: 30px;
       }
+
       .toc-list {
         padding-left: 15px;
       }
+
       a.toc-link {
         text-decoration: none;
       }
+
+      .editor {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input,
+      .preview {
+        box-sizing: border-box;
+        width: calc(50% - 10px);
+      }
+
+      .input {
+        padding: 5px 15px;
+        font-size: 15px;
+        font-family: Consolas, "Liberation Mono", Courier, monospace;
+        line-height: 1.5;
+        resize: none;
+        height: 50vh;
+        overflow-y: hidden;
+      }
+
       @media (prefers-color-scheme: dark) {
         html {
           color-scheme: dark;
         }
+
         body {
           background-color: #0d1117;
         }
+
         .toc {
           color: #c9d1d9;
         }
+
         .toc-link::before {
           background-color: #30363d;
         }
       }
+
       .is-active-link::before {
         background-color: #77ace9;
       }
+
       @media screen and (max-width: 1020px) {
         .main {
           padding-right: 0;
         }
+
         .toc {
           display: none;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .editor {
+          flex-direction: column;
+        }
+
+        .input,
+        .preview {
+          width: 100%;
+        }
+
+        .preview {
+          margin-top: 20px;
         }
       }
     </style>
@@ -84,50 +131,122 @@
     </script>
   </head>
   <body>
-    <div class="main"></div>
-    <div class="toc"></div>
     <script>
       (function(){
-        const path = location.search.substring(1) || 'index'
-        fetch(`/md/${path}.md`)
-          .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
-          .then(text => {
-            const converter = new showdown.Converter()
-            converter.setFlavor('github')
-            const el = document.createElement('p')
-            el.className = 'markdown-body'
-            el.innerHTML = converter.makeHtml(text)
-            document.querySelector('.main').appendChild(el)
+        const converter = new showdown.Converter()
+        converter.setFlavor('github')
 
-            hljs.configure({ languages: [] })
-            hljs.highlightAll()
+        hljs.configure({ languages: [] })
 
-            renderMathInElement(el, {
-              delimiters: [
-                { left: '$$', right: '$$', display: true },
-                { left: '$', right: '$', display: false }
-              ],
-              throwOnError: false
-            })
+        function render(text, mainSelector, tocSelector, titlePrefix) {
+          const mainE = document.querySelector(mainSelector)
+          mainE.innerHTML = ''
 
+          const el = document.createElement('p')
+          el.className = 'markdown-body'
+          el.innerHTML = converter.makeHtml(text)
+          mainE.appendChild(el)
+
+          hljs.highlightAll()
+
+          renderMathInElement(el, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          })
+
+          if (tocSelector) {
             tocbot.init({
-              tocSelector: '.toc',
+              tocSelector,
               contentSelector: '.markdown-body'
             })
+          }
 
-            const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
-            document.title = title ? `FSDN - ${title}` : 'FSDN'
+          const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
+          document.title = titlePrefix + (title ? ` - ${title}` : '')
 
-            const mdLinkPrefix = `${location.origin}/md/`
-            const mdLinkSuffix = '.md'
-            document.querySelectorAll('a').forEach(e => {
-              if (e.href.startsWith(mdLinkPrefix) && e.href.endsWith(mdLinkSuffix)) {
-                const name = e.href.substring(mdLinkPrefix.length, e.href.length - mdLinkSuffix.length)
-                e.href = `/index.html?${name}`
-              }
-            })
+          const mdLinkPrefix = `${location.origin}/md/`
+          const mdLinkSuffix = '.md'
+          document.querySelectorAll('a').forEach(e => {
+            if (e.href.startsWith(mdLinkPrefix) && e.href.endsWith(mdLinkSuffix)) {
+              const name = e.href.substring(mdLinkPrefix.length, e.href.length - mdLinkSuffix.length)
+              e.href = `/index.html?${name}`
+            }
           })
-          .catch(e => alert(e))
+        }
+
+        const path = location.search.substring(1) || 'index'
+
+        if (path == 'editor') {
+          const editorE = document.createElement('div')
+          editorE.classList.add('editor')
+
+          const inputE = document.createElement('textarea')
+          inputE.classList.add('input')
+          inputE.value = localStorage.getItem('editor-input') || ''
+          editorE.appendChild(inputE)
+
+          const previewE = document.createElement('div')
+          previewE.classList.add('preview')
+          editorE.appendChild(previewE)
+
+          let waiting = null
+
+          function update() {
+            render(inputE.value, '.preview', null, 'FSDN Editor')
+
+            waiting = { updateLater: false }
+            setTimeout(() => {
+              if (waiting.updateLater) {
+                update()
+              } else {
+                waiting = null
+              }
+            }, 500)
+          }
+
+          inputE.oninput = () => {
+            // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
+            // .input {
+            //   resize: none;
+            //   height: ...;
+            //   overflow-y: hidden;
+            // }
+            inputE.style.height = ''
+            inputE.style.height = inputE.scrollHeight + 'px'
+
+            if (!waiting) {
+              update()
+            } else {
+              waiting.updateLater = true
+            }
+          }
+
+          window.onunload = () => {
+            localStorage.setItem('editor-input', inputE.value)
+          }
+
+          document.body.appendChild(editorE)
+
+          update()
+        } else {
+          fetch(`/md/${path}.md`)
+            .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
+            .then(text => {
+              const mainE = document.createElement('div')
+              mainE.classList.add('main')
+              document.body.appendChild(mainE)
+
+              const tocE = document.createElement('div')
+              tocE.classList.add('toc')
+              document.body.appendChild(tocE)
+
+              render(text, '.main', '.toc', 'FSDN')
+            })
+            .catch(e => alert(e))
+        }
       }())
     </script>
   </body>
