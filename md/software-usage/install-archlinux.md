@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-8-14
+> 上次更新：2023-9-23
 
 ## 安装系统
 
@@ -17,6 +17,16 @@
 - sudo
 - networkmanager
 - man-db man-pages texinfo
+
+## 安装问题
+
+### 临时禁用蜂鸣器
+
+`rmmod pcspkr`
+
+### GRUB的os-prober无效
+
+安装完系统后重试
 
 ## 基础配置
 
@@ -60,12 +70,6 @@ nmtui
 
 ### gnome桌面
 
-#### Option 1
-
-- `sudo pacman -S gnome gnome-tweaks`
-
-#### Option 2
-
 - baobab (Disk Usage Analyzer)
 - eog (Image Viewer)
 - gdm
@@ -89,27 +93,8 @@ nmtui
 > 参考 https://wiki.archlinux.org/title/NVIDIA
 
 - `sudo pacman -S nvidia`
-- 将`/etc/mkinitcpio.conf`中的`MODULES=()`改为`MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
-- `sudo mkinitcpio -p linux`
-- 创建`/etc/pacman.d/hooks/nvidia.hook`，内容为：
-
-    ```ini
-    [Trigger]
-    Operation=Install
-    Operation=Upgrade
-    Operation=Remove
-    Type=Package
-    Target=nvidia
-    Target=linux
-
-    [Action]
-    Description=Update NVIDIA module in initcpio
-    Depends=mkinitcpio
-    When=PostTransaction
-    NeedsTargets
-    Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
-    ```
-
+- 将`/etc/mkinitcpio.conf`中`HOOKS`后的`kms`去掉
+- `mkinitcpio -P`
 - 重启
 
 ### paru
@@ -118,21 +103,34 @@ nmtui
 
 ### chrome
 
-#### Option 1: Flatpak
+#### Option 1: chromium
 
-- `flatpak install -u flathub com.google.Chrome`
+- `sudo pacman -S chromium`
 
 #### Option 2: AUR
 
 - `paru -S google-chrome`
 
-### Win11字体
+#### Option 3: Flatpak
+
+- `flatpak install -u flathub com.google.Chrome`
+
+### 字体
+
+#### Option 1: Win11字体
 
 > 参考
 > https://wiki.archlinux.org/title/Fonts
 > https://wiki.archlinux.org/title/Microsoft_fonts
 
 - `paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
+- 可能失败
+
+#### Option 2: adobe-source-han
+
+> 参考 https://wiki.archlinux.org/title/Localization/Chinese
+
+- `sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts`
 
 ### 输入法
 
