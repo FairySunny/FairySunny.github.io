@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-9-23
+> 上次更新：2023-9
 
 ## 安装系统
 
@@ -117,7 +117,7 @@ nmtui
 
 ### 字体
 
-#### Option 1: Win11字体
+#### Option 1: Win11字体（自动）
 
 > 参考
 > https://wiki.archlinux.org/title/Fonts
@@ -126,7 +126,13 @@ nmtui
 - `paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
 - 可能失败
 
-#### Option 2: adobe-source-han
+
+#### Option 2: Win11字体（手动）
+
+- `paru -S ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other`
+- 需要按照`PKGBUILD`中的提示从Windows拷贝字体
+
+#### Option 3: adobe-source-han
 
 > 参考 https://wiki.archlinux.org/title/Localization/Chinese
 
