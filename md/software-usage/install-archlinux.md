@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-9
+> 上次更新：2023-10
 
 ## 安装系统
 
@@ -126,7 +126,6 @@ nmtui
 - `paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
 - 可能失败
 
-
 #### Option 2: Win11字体（手动）
 
 - `paru -S ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other`
@@ -171,7 +170,13 @@ nmtui
 - 在Settings -> Keyboard -> Keyboard Shortcuts中设置快捷键
     - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
 
-### 非整数倍缩放
+### 缩放
+
+#### Option 1: 字体缩放
+
+- Tweaks -> Fonts -> Scaling Factor
+
+#### Option 2: 非整数倍缩放 (X11)
 
 > 参考 https://aur.archlinux.org/packages/mutter-x11-scaling
 
@@ -200,18 +205,22 @@ nmtui
 
 ### chrome、vscode等应用切换时滚动问题
 
+> 该问题在wayland下不存在
+
 > 参考 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
 - 安装gnome扩展Alt+Tab Scroll Workaround
 
 ### 打开文件夹默认应用为vscode而非files
 
+> 该问题在code-oss下不存在
+
 > 参考 https://www.reddit.com/r/gnome/comments/8gtmkw/how_to_change_what_application_open_folders/
 
 - `gio mime inode/directory`查看打开文件夹默认应用
 - `gio mime inode/directory org.gnome.Nautilus.desktop`，会修改配置文件`~/.config/mimeapps.list`
 
-### 连接蓝牙耳机（？）
+### 蓝牙
 
-- `sudo pacman -S pipewire-pulse` （？）
-- 如果是和Windows双系统，在Windows上取消配对
+- `sudo systemctl enable --now bluetooth.service`
+- 蓝牙耳机：如果是和Windows双系统，在Windows上取消配对
