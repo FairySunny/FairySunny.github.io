@@ -237,17 +237,15 @@
 
           update()
         } else if (path == 'show') {
-          onmessage = e => {
-            onmessage = null
+          const mainE = document.createElement('div')
+          mainE.classList.add('main')
+          document.body.appendChild(mainE)
 
+          onmessage = e => {
             if (!/^http(s:\/\/[a-z]+\.sunny\.icu|:\/\/(localhost|127\.0\.0\.1)(:\d+)?)$/.test(e.origin)) {
               alert('Illegal origin: ' + e.origin)
               return
             }
-
-            const mainE = document.createElement('div')
-            mainE.classList.add('main')
-            document.body.appendChild(mainE)
 
             render(String(e.data), '.main', null, '', true)
             document.querySelectorAll('a').forEach(e => e.target = '_parent')
