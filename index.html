@@ -243,6 +243,8 @@
           mainE.style.paddingRight = '0'
           document.body.appendChild(mainE)
 
+          let resizeObserver = null
+
           onmessage = e => {
             if (!/^http(s:\/\/[a-z]+\.sunny\.icu|:\/\/(localhost|127\.0\.0\.1)(:\d+)?)$/.test(e.origin)) {
               alert('Illegal origin: ' + e.origin)
@@ -252,8 +254,11 @@
             render(String(e.data), '.main', null, '', true)
             document.querySelectorAll('a').forEach(e => e.target = '_parent')
 
-            if (parent != window) {
-              parent.postMessage(document.body.scrollHeight + 60, e.origin)
+            if (parent != window && resizeObserver == null) {
+              resizeObserver = new ResizeObserver(() => {
+                parent.postMessage(document.body.scrollHeight + 60, e.origin)
+              })
+              resizeObserver.observe(document.body)
             }
           }
         } else {
