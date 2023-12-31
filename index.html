@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/katex@0.16.4/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
     <script src="https://unpkg.com/tocbot@4.20.1/dist/tocbot.min.js"></script>
+    <script src="https://unpkg.com/dompurify@3.0.6/dist/purify.min.js"></script>
     <style>
       body {
         margin: 30px 20px;
@@ -138,13 +139,17 @@
 
         hljs.configure({ languages: [] })
 
-        function render(text, mainSelector, tocSelector, titlePrefix) {
+        function render(text, mainSelector, tocSelector, titlePrefix, purify) {
           const mainE = document.querySelector(mainSelector)
           mainE.innerHTML = ''
 
           const el = document.createElement('p')
           el.className = 'markdown-body'
-          el.innerHTML = converter.makeHtml(text)
+          let html = converter.makeHtml(text)
+          if (purify) {
+            html = DOMPurify.sanitize(html, { USE_PROFILES: { html: true } })
+          }
+          el.innerHTML = html
           mainE.appendChild(el)
 
           hljs.highlightAll()
@@ -231,6 +236,21 @@
           document.body.appendChild(editorE)
 
           update()
+        } else if (path == 'show') {
+          onmessage = e => {
+            onmessage = null
+
+            if (!/^http(s:\/\/[a-z]+\.sunny\.icu|:\/\/(localhost|127\.0\.0\.1)(:\d+)?)$/.test(e.origin)) {
+              alert('Illegal origin: ' + e.origin)
+              return
+            }
+
+            const mainE = document.createElement('div')
+            mainE.classList.add('main')
+            document.body.appendChild(mainE)
+
+            render(String(e.data), '.main', null, '', true)
+          }
         } else {
           fetch(`/md/${path}.md`)
             .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
