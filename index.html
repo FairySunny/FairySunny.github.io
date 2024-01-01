@@ -212,7 +212,7 @@
             }, 500)
           }
 
-          inputE.oninput = () => {
+          function updateInputHeight() {
             // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
             // .input {
             //   resize: none;
@@ -221,6 +221,10 @@
             // }
             inputE.style.height = ''
             inputE.style.height = inputE.scrollHeight + 'px'
+          }
+
+          inputE.oninput = () => {
+            updateInputHeight()
 
             if (!waiting) {
               update()
@@ -235,6 +239,7 @@
 
           document.body.appendChild(editorE)
 
+          updateInputHeight()
           update()
         } else if (path == 'show') {
           const mainE = document.createElement('div')
