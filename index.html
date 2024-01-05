@@ -17,6 +17,7 @@
     <style>
       body {
         margin: 30px 20px;
+        font-family: sans-serif;
       }
 
       .main {
@@ -41,7 +42,7 @@
         padding-left: 15px;
       }
 
-      a.toc-link {
+      .toc-link {
         text-decoration: none;
       }
 
@@ -137,10 +138,7 @@
         const converter = new showdown.Converter()
         converter.setFlavor('github')
 
-        hljs.configure({ languages: [] })
-
-        function render(text, mainSelector, tocSelector, titlePrefix, purify) {
-          const mainE = document.querySelector(mainSelector)
+        function render(text, mainE, tocE, titlePrefix, purify) {
           mainE.innerHTML = ''
 
           const el = document.createElement('p')
@@ -152,20 +150,28 @@
           el.innerHTML = html
           mainE.appendChild(el)
 
-          hljs.highlightAll()
+          el.querySelectorAll('pre code').forEach(e => {
+            if (hljs.getLanguage(e.classList[0])) {
+              e.innerHTML = hljs.highlight(e.innerText || '', {
+                language: e.classList[0],
+                ignoreIllegals: true
+              }).value
+            }
+          })
 
           renderMathInElement(el, {
             delimiters: [
               { left: '$$', right: '$$', display: true },
               { left: '$', right: '$', display: false }
             ],
-            throwOnError: false
+            throwOnError: false,
+            strict: false
           })
 
-          if (tocSelector) {
+          if (tocE) {
             tocbot.init({
-              tocSelector,
-              contentSelector: '.markdown-body'
+              tocElement: tocE,
+              contentElement: el
             })
           }
 
@@ -200,7 +206,7 @@
           let waiting = null
 
           function update() {
-            render(inputE.value, '.preview', null, 'FSDN Editor')
+            render(inputE.value, previewE, null, 'FSDN Editor')
 
             waiting = { updateLater: false }
             setTimeout(() => {
@@ -256,7 +262,7 @@
               return
             }
 
-            render(String(e.data), '.main', null, '', true)
+            render(String(e.data), mainE, null, '', true)
             document.querySelectorAll('a').forEach(e => e.target = '_parent')
 
             if (parent != window && resizeObserver == null) {
@@ -278,7 +284,7 @@
               tocE.classList.add('toc')
               document.body.appendChild(tocE)
 
-              render(text, '.main', '.toc', 'FSDN')
+              render(text, mainE, tocE, 'FSDN')
             })
             .catch(e => alert(e))
         }
