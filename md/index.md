@@ -24,22 +24,21 @@ FairySunny's Developer Notes
 
 ### Web应用展示
 
-- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/index.html?editor) | [:page_facing_up:源代码](https://github.com/FairySunny/FairySunny.github.io)
-- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [:page_facing_up:源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [:package:构建](https://gitee.com/FairySunny/space-cadet-pinball-web)
-- [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [:page_facing_up:源代码](https://gitee.com/FairySunny/shengmingyouxi-webgl)
-- [NML](https://fairysunny.gitee.io/nml) | [:page_facing_up:源代码](https://gitee.com/FairySunny/nml)
-- [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [:page_facing_up:源代码](https://gitee.com/FairySunny/site-not-ready)
-- [➈ Funky](https://fairysunny.gitee.io/funky) | [:page_facing_up:源代码](https://gitee.com/FairySunny/funky)
-- [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [:page_facing_up:源代码](https://gitee.com/FairySunny/mc-calc)
-- [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [:page_facing_up:源代码](https://gitee.com/FairySunny/tiaozhan-homepage)
-- [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [:page_facing_up:源代码](https://gitee.com/FairySunny/tuxun-panorama)
+- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/index.html?editor) | [📄源代码](https://github.com/FairySunny/FairySunny.github.io)
+- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [📄源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [📦构建](https://gitee.com/FairySunny/space-cadet-pinball-web)
+- [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄源代码](https://gitee.com/FairySunny/shengmingyouxi-webgl)
+- [NML](https://fairysunny.gitee.io/nml) | [📄源代码](https://gitee.com/FairySunny/nml)
+- [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [📄源代码](https://gitee.com/FairySunny/site-not-ready)
+- [➈ Funky](https://fairysunny.gitee.io/funky) | [📄源代码](https://gitee.com/FairySunny/funky)
+- [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [📄源代码](https://gitee.com/FairySunny/mc-calc)
+- [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄源代码](https://gitee.com/FairySunny/tiaozhan-homepage)
+- [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄源代码](https://gitee.com/FairySunny/tuxun-panorama)
 
 #### HTML Stuff
 
 单HTML文件小游戏/小工具/奇奇怪怪的东西
 
-:clipboard: [目录](https://fairysunny.gitee.io/html-stuff/)
-:page_facing_up: [源代码](https://gitee.com/FairySunny/html-stuff)
+[📋目录](https://fairysunny.gitee.io/html-stuff/) | [📄源代码](https://gitee.com/FairySunny/html-stuff)
 
 ### 杂项
 

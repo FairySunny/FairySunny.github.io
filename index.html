@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/github-markdown-css@5.2.0/github-markdown.css">
     <link rel="stylesheet" href="https://unpkg.com/katex@0.16.4/dist/katex.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tocbot@4.20.1/dist/tocbot.css">
-    <script src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script src="https://unpkg.com/marked@11.1.1/marked.min.js"></script>
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
     <script src="https://unpkg.com/katex@0.16.4/dist/katex.min.js"></script>
     <script src="https://unpkg.com/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
@@ -135,15 +135,16 @@
   <body>
     <script>
       (function(){
-        const converter = new showdown.Converter()
-        converter.setFlavor('github')
+        marked.use({
+          silent: true
+        })
 
         function render(text, mainE, tocE, titlePrefix, purify) {
           mainE.innerHTML = ''
 
           const el = document.createElement('p')
           el.className = 'markdown-body'
-          let html = converter.makeHtml(text)
+          let html = marked.parse(text)
           if (purify) {
             html = DOMPurify.sanitize(html, { USE_PROFILES: { html: true } })
           }
@@ -151,9 +152,10 @@
           mainE.appendChild(el)
 
           el.querySelectorAll('pre code').forEach(e => {
-            if (hljs.getLanguage(e.classList[0])) {
+            const language = (e.classList[0] || '').match(/^language-(.+)/)?.[1]
+            if (hljs.getLanguage(language)) {
               e.innerHTML = hljs.highlight(e.innerText || '', {
-                language: e.classList[0],
+                language,
                 ignoreIllegals: true
               }).value
             }
