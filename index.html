@@ -67,6 +67,11 @@
         overflow-y: hidden;
       }
 
+      .markdown-body .mermaid {
+        padding: 0;
+        background-color: transparent;
+      }
+
       @media (prefers-color-scheme: dark) {
         html {
           color-scheme: dark;
@@ -114,8 +119,12 @@
         }
       }
     </style>
+  </head>
+  <body>
     <script>
       (function(){
+        const darkQuery = matchMedia('(prefers-color-scheme: dark)')
+
         let linkE
         function changeTheme(dark) {
           if (linkE) {
@@ -126,15 +135,9 @@
           linkE.href = `https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github${dark ? '-dark' : ''}.min.css`
           document.head.appendChild(linkE)
         }
-        const query = matchMedia('(prefers-color-scheme: dark)')
-        changeTheme(query.matches)
-        query.addListener(e => changeTheme(e.matches))
-      }())
-    </script>
-  </head>
-  <body>
-    <script>
-      (function(){
+        changeTheme(darkQuery.matches)
+        darkQuery.addListener(e => changeTheme(e.matches))
+
         marked.use({
           silent: true,
           breaks: true
@@ -183,12 +186,41 @@
 
           const mdLinkPrefix = `${location.origin}/md/`
           const mdLinkSuffix = '.md'
-          document.querySelectorAll('a').forEach(e => {
+          el.querySelectorAll('a').forEach(e => {
             if (e.href.startsWith(mdLinkPrefix) && e.href.endsWith(mdLinkSuffix)) {
               const name = e.href.substring(mdLinkPrefix.length, e.href.length - mdLinkSuffix.length)
               e.href = `/index.html?${name}`
             }
           })
+
+          const mermaidEs = Array.from(
+            el.querySelectorAll('pre > code.language-mermaid'),
+            e => {
+              const text = e.textContent
+              const pre = e.parentElement
+              if (!pre) return
+              pre.innerHTML = ''
+              pre.textContent = text
+              pre.className = 'mermaid'
+              return pre
+            }
+          ).filter(e => e?.isConnected)
+          if (mermaidEs.length) {
+            import('https://unpkg.com/mermaid@10.6.1/dist/mermaid.esm.min.mjs').then(m => {
+              const mermaid = m.default
+              if (mermaid.isDark != darkQuery.matches) {
+                mermaid.isDark = darkQuery.matches
+                mermaid.initialize({
+                  startOnLoad: false,
+                  theme: mermaid.isDark ? 'dark' : 'default'
+                })
+              }
+              mermaid.run({
+                nodes: mermaidEs,
+                suppressErrors: true
+              })
+            })
+          }
         }
 
         const path = location.search.substring(1) || 'index'
@@ -206,10 +238,14 @@
           previewE.classList.add('preview')
           editorE.appendChild(previewE)
 
+          function doRender() {
+            render(inputE.value, previewE, null, 'FSDN Editor')
+          }
+
           let waiting = null
 
           function update() {
-            render(inputE.value, previewE, null, 'FSDN Editor')
+            doRender()
 
             waiting = { updateLater: false }
             setTimeout(() => {
@@ -242,7 +278,9 @@
             }
           }
 
-          window.onunload = () => {
+          darkQuery.addListener(doRender)
+
+          onunload = () => {
             localStorage.setItem('editor-input', inputE.value)
           }
 
@@ -257,6 +295,13 @@
           mainE.style.paddingRight = '0'
           document.body.appendChild(mainE)
 
+          let source = null
+          function doRender() {
+            if (source != null) {
+              render(source, mainE, null, '', true)
+            }
+          }
+
           let resizeObserver = null
 
           onmessage = e => {
@@ -265,8 +310,9 @@
               return
             }
 
-            render(String(e.data), mainE, null, '', true)
-            document.querySelectorAll('a').forEach(e => e.target = '_parent')
+            source = String(e.data)
+            doRender()
+            mainE.querySelectorAll('a').forEach(e => e.target = '_parent')
 
             if (parent != window && resizeObserver == null) {
               resizeObserver = new ResizeObserver(() => {
@@ -275,6 +321,8 @@
               resizeObserver.observe(document.body)
             }
           }
+
+          darkQuery.addListener(doRender)
         } else {
           fetch(`/md/${path}.md`)
             .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
@@ -287,7 +335,13 @@
               tocE.classList.add('toc')
               document.body.appendChild(tocE)
 
-              render(text, mainE, tocE, 'FSDN')
+              function doRender() {
+                render(text, mainE, tocE, 'FSDN')
+              }
+
+              darkQuery.addListener(doRender)
+
+              doRender()
             })
             .catch(e => alert(e))
         }
