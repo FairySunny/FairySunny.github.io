@@ -139,7 +139,7 @@
           el.className = 'markdown-body'
           let html = marked.parse(text)
           if (purify) {
-            html = DOMPurify.sanitize(html, { USE_PROFILES: { html: true } })
+            html = DOMPurify.sanitize(html)
           }
           el.innerHTML = html
           mainE.appendChild(el)
