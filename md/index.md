@@ -33,6 +33,7 @@ FairySunny's Developer Notes
 - [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [📄源代码](https://gitee.com/FairySunny/mc-calc)
 - [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄源代码](https://gitee.com/FairySunny/tiaozhan-homepage)
 - [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄源代码](https://gitee.com/FairySunny/tuxun-panorama)
+- [应用图标收集](https://fairysunny.gitee.io/icons/) | [📄源代码](https://gitee.com/FairySunny/icons)
 
 #### HTML Stuff
 
