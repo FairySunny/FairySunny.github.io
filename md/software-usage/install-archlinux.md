@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2023-10
+> 上次更新：2024-01
 
 ## 安装系统
 
@@ -103,17 +103,9 @@ nmtui
 
 ### chrome
 
-#### Option 1: chromium
-
-- `sudo pacman -S chromium`
-
-#### Option 2: AUR
-
-- `paru -S google-chrome`
-
-#### Option 3: Flatpak
-
-- `flatpak install -u flathub com.google.Chrome`
+- package: `chromium`
+- AUR: `google-chrome`
+- Flathub: `com.google.Chrome`
 
 ### 字体
 
@@ -144,6 +136,14 @@ nmtui
 > 参考 https://wiki.archlinux.org/title/IBus
 
 - `sudo pacman -S ibus-rime`
+- 在`/etc/environment`中添加：
+
+    ```
+    GTK_IM_MODULE=ibus
+    QT_IM_MODULE=ibus
+    XMODIFIERS=@im=ibus
+    ```
+
 - （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
 - 按F4选择简体
 
@@ -186,9 +186,10 @@ nmtui
 
 ### gnome扩展
 
-#### Option 1: Flatpak
+#### Option 1: Extension Manager
 
-- `flatpak install -u flathub com.mattjakeman.ExtensionManager`
+- AUR: `extension-manager`
+- Flathub: `com.mattjakeman.ExtensionManager`
 
 #### Option 2: Chrome插件
 
@@ -203,17 +204,28 @@ nmtui
 - 将主题解压到`~/.themes`中，将图标（以及光标）解压到`~/.icons`中
 - 在Tweaks -> Appearance中设置主题与图标
 
-### chrome、vscode等应用切换时滚动问题
+### 屏幕撕裂（X11）
 
-> 该问题在wayland下不存在
+> 参考 https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#Avoid_screen_tearing
+
+- 创建`/etc/X11/xorg.conf.d/20-nvidia.conf`：
+
+    ```
+    Section "Screen"
+        Identifier     "Screen0"
+        Option         "ForceFullCompositionPipeline" "on"
+        Option         "AllowIndirectGLXProtocol" "off"
+        Option         "TripleBuffer" "on"
+    EndSection
+    ```
+
+### chrome、vscode等应用切换时滚动问题（X11）
 
 > 参考 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
 - 安装gnome扩展Alt+Tab Scroll Workaround
 
-### 打开文件夹默认应用为vscode而非files
-
-> 该问题在code-oss下不存在
+### 打开文件夹默认应用为vscode而非files（visual-studio-code-bin）
 
 > 参考 https://www.reddit.com/r/gnome/comments/8gtmkw/how_to_change_what_application_open_folders/
 
