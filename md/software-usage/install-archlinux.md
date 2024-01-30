@@ -53,6 +53,10 @@ nmtui
 - `usermod -a -G wheel xxx`
 - 登出、切换用户
 
+### paru
+
+- AUR: `paru-bin`
+
 ## 基础问题
 
 ### 禁用蜂鸣器
@@ -96,10 +100,6 @@ nmtui
 - 将`/etc/mkinitcpio.conf`中`HOOKS`后的`kms`去掉
 - `mkinitcpio -P`
 - 重启
-
-### paru
-
-- 见 https://github.com/morganamilo/paru
 
 ### chrome
 
