@@ -56,8 +56,4 @@ FairySunny's Developer Notes
 <a href="https://gitee.com/FairySunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
 </p>
 
-## Funky!
-
-<p><iframe style="border: none; width: 100%; height: 500px" src="https://fairysunny.gitee.io/funky/"></iframe></p>
-
 <p style="text-align: center">by Sunny💛</p>
