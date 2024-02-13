@@ -4,48 +4,49 @@
 
 FairySunny's Developer Notes
 
-## 目录
+## Contents
 
-### 软件安装与使用
+### Software
 
-- [安装及配置Arch Linux](/md/software-usage/install-archlinux.md)
+- [Arch Linux](/md/software-usage/install-archlinux.md)
 
-### 服务器运维
+### Server
 
 - [Nginx](/md/server-maintenance/nginx.md)
 - [Certbot](/md/server-maintenance/certbot.md)
 
-### 小技巧
+### Tricks
 
 - [Windows快捷脚本](/md/tricks/windows-scripts.md)
 - [获取百度文库文本](/md/tricks/wenkudown.md)
 - [获取4399游戏swf](/md/tricks/4399swf.md)
 - [移除CSDN“关注博主即可阅读全文”](/md/tricks/csdnshow.md)
 
-### Web应用展示
+### Web Applications
 
-- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/index.html?editor) | [📄源代码](https://github.com/FairySunny/FairySunny.github.io)
-- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [📄源代码](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [📦构建](https://gitee.com/FairySunny/space-cadet-pinball-web)
-- [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄源代码](https://gitee.com/FairySunny/shengmingyouxi-webgl)
-- [NML](https://fairysunny.gitee.io/nml) | [📄源代码](https://gitee.com/FairySunny/nml)
-- [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [📄源代码](https://gitee.com/FairySunny/site-not-ready)
-- [➈ Funky](https://fairysunny.gitee.io/funky) | [📄源代码](https://gitee.com/FairySunny/funky)
-- [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [📄源代码](https://gitee.com/FairySunny/mc-calc)
-- [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄源代码](https://gitee.com/FairySunny/tiaozhan-homepage)
-- [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄源代码](https://gitee.com/FairySunny/tuxun-panorama)
-- [应用图标收集](https://fairysunny.gitee.io/icons/) | [📄源代码](https://gitee.com/FairySunny/icons)
+- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/index.html?editor) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
+- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [📄Source](https://github.com/THHH0Sunshine/SpaceCadetPinball) | [📦Build](https://gitee.com/FairySunny/space-cadet-pinball-web)
+- [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄Source](https://gitee.com/FairySunny/shengmingyouxi-webgl)
+- [NML](https://fairysunny.gitee.io/nml) | [📄Source](https://gitee.com/FairySunny/nml)
+- [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [📄Source](https://gitee.com/FairySunny/site-not-ready)
+- [➈ Funky](https://fairysunny.gitee.io/funky) | [📄Source](https://gitee.com/FairySunny/funky)
+- [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [📄Source](https://gitee.com/FairySunny/mc-calc)
+- [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄Source](https://gitee.com/FairySunny/tiaozhan-homepage)
+- [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄Source](https://gitee.com/FairySunny/tuxun-panorama)
+- [应用图标收集](https://fairysunny.gitee.io/icons/) | [📄Source](https://gitee.com/FairySunny/icons)
+- [HTML Stuff](https://fairysunny.gitee.io/html-stuff/) | [📄Source](https://gitee.com/FairySunny/html-stuff)
 
-#### HTML Stuff
+### Collection of Weird Problems
 
-单HTML文件小游戏/小工具/奇奇怪怪的东西
+- [electron] GPU process isn't usable. Goodbye. https://github.com/Automattic/simplenote-electron/issues/3096
+- [ssh] expecting SSH2_MSG_KEX_ECDH_REPLY https://serverfault.com/questions/1058473/unable-to-ssh-into-server
+- [node.js] ERR_OSSL_EVP_UNSUPPORTED https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
 
-[📋目录](https://fairysunny.gitee.io/html-stuff/) | [📄源代码](https://gitee.com/FairySunny/html-stuff)
+### Misc
 
-### 杂项
+- [Markdown Demo](/md/misc/markdown-test.md)
 
-- [Markdown Test](/md/misc/markdown-test.md)
-
-## 关于
+## About
 
 <p style="text-align: center">
 <br>
@@ -55,5 +56,3 @@ FairySunny's Developer Notes
 <br>
 <a href="https://gitee.com/FairySunny">Gitee</a> | <a href="https://github.com/FairySunny">Github</a> | <a href="https://space.bilibili.com/269407920">Bilibili</a>
 </p>
-
-<p style="text-align: center">by Sunny💛</p>
