@@ -38,9 +38,14 @@ FairySunny's Developer Notes
 
 ### Collection of Weird Problems
 
-- [electron] GPU process isn't usable. Goodbye. https://github.com/Automattic/simplenote-electron/issues/3096
-- [ssh] expecting SSH2_MSG_KEX_ECDH_REPLY https://serverfault.com/questions/1058473/unable-to-ssh-into-server
-- [node.js] ERR_OSSL_EVP_UNSUPPORTED https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
+- [electron] GPU process isn't usable. Goodbye.
+    - https://github.com/Automattic/simplenote-electron/issues/3096
+- [ssh] expecting SSH2_MSG_KEX_ECDH_REPLY
+    - https://serverfault.com/questions/1058473/unable-to-ssh-into-server
+- [node.js] ERR_OSSL_EVP_UNSUPPORTED
+    - https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
+- [flatpak] GLX: Failed to find a suitable GLXFBConfig
+    - https://github.com/PrismLauncher/PrismLauncher/issues/866
 
 ### Misc
 
