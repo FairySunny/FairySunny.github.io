@@ -35,7 +35,7 @@ FairySunny's Developer Notes
 - [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄Source](https://gitee.com/FairySunny/tuxun-panorama)
 - [HTML Stuff](https://fairysunny.gitee.io/html-stuff/) | [📄Source](https://gitee.com/FairySunny/html-stuff)
 
-### Bugs
+### Tips
 
 - [electron] GPU process isn't usable. Goodbye.
     - https://github.com/Automattic/simplenote-electron/issues/3096
@@ -45,6 +45,8 @@ FairySunny's Developer Notes
     - https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
 - [flatpak] GLX: Failed to find a suitable GLXFBConfig
     - https://github.com/PrismLauncher/PrismLauncher/issues/866
+- [podman] The cgroupv2 manager is set to systemd but there is no systemd user session available
+    - https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-systemd-but-there-is-no-systemd-user-sess
 - [PyTorch] Could not load library libcudnn_cnn_infer.so.8.
     - https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175139
 - [PyTorch] undefined symbol: iJIT_NotifyEvent
