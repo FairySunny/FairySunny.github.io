@@ -1,7 +1,7 @@
 # Nginx
 
 > 参考：https://nginx.org/en/docs/
-> 上次更新：2023-3-1
+> 上次更新：2024-6
 
 ## 变量
 
@@ -34,24 +34,11 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ## websocket反向代理
 
 ```
-map $http_upgrade $connection_upgrade {
-    default upgrade;
-    '' close;
-}
-
-server {
-    ...
-
-    location ... {
-        proxy_pass ...;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-        proxy_set_header Host $host;
-    }
-
-    ...
-}
+proxy_pass ...;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "Upgrade";
+proxy_set_header Host $host;
 ```
 
 ## nginx目录结构样例
@@ -105,8 +92,8 @@ server {
     server_name _;
     listen 80 default_server;
 
-    access_log off;
-    error_log off;
+    access_log /dev/null;
+    error_log /dev/null;
 
     return 404;
 }
@@ -117,8 +104,8 @@ server {
 
     include snippets/https-example-com.conf;
 
-    access_log off;
-    error_log off;
+    access_log /dev/null;
+    error_log /dev/null;
 
     return 404;
 }
@@ -127,8 +114,8 @@ server {
     server_name *.example.com example.com;
     listen 80;
 
-    access_log off;
-    error_log off;
+    access_log /dev/null;
+    error_log /dev/null;
 
     location / {
         return 301 https://$host$request_uri;
@@ -141,8 +128,8 @@ server {
 
     include snippets/https-example-com.conf;
 
-    access_log off;
-    error_log off;
+    access_log /dev/null;
+    error_log /dev/null;
 
     location / {
         return 301 https://www.example.com$request_uri;
