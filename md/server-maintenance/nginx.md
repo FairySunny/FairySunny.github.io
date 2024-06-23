@@ -24,9 +24,10 @@
 ```
 proxy_pass ...;
 # 以下内容可以写在单独文件中并include
-proxy_set_header Host $host; # 请求头Host指定为本服务器主机名
+proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
 ```
 
 > `proxy_pass`指定的地址若无URI（如`http://127.0.0.1:51000`）则保留原URI，否则（如`http://127.0.0.1:51000/`）用此URI代替`location`匹配到的部分
@@ -35,6 +36,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 ```
 proxy_pass ...;
+# 以下内容可以写在单独文件中并include
 proxy_http_version 1.1;
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection "Upgrade";
@@ -53,6 +55,7 @@ proxy_set_header Host $host;
     - `snippets/`
         - `https-example-com.conf`
         - `proxy.conf`
+        - `ws-proxy.conf`
     - `sites-enabled/` 注：在`nginx.conf`的`http`块中添加`include /etc/nginx/sites-enabled/*.on`
         - `www.on`
         - `test.on`
@@ -75,14 +78,6 @@ ssl_stapling_verify on;
 ssl_dhparam /etc/nginx/cert/dhparam.pem;
 resolver 8.8.8.8 8.8.4.4 valid=300s;
 resolver_timeout 10s;
-```
-
-### snippets/proxy.conf
-
-```
-proxy_set_header Host $host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
 ### sites-enabled/www.on
