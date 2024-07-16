@@ -8,6 +8,7 @@ FairySunny's Developer Notes
 
 ### Software
 
+- [Tips](/md/software-usage/tips.md)
 - [Arch Linux](/md/software-usage/install-archlinux.md)
 
 ### Server
@@ -34,23 +35,6 @@ FairySunny's Developer Notes
 - [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄Source](https://gitee.com/FairySunny/tiaozhan-homepage)
 - [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄Source](https://gitee.com/FairySunny/tuxun-panorama)
 - [HTML Stuff](https://fairysunny.gitee.io/html-stuff/) | [📄Source](https://gitee.com/FairySunny/html-stuff)
-
-### Tips
-
-- [electron] GPU process isn't usable. Goodbye.
-    - https://github.com/Automattic/simplenote-electron/issues/3096
-- [ssh] expecting SSH2_MSG_KEX_ECDH_REPLY
-    - https://serverfault.com/questions/1058473/unable-to-ssh-into-server
-- [node.js] ERR_OSSL_EVP_UNSUPPORTED
-    - https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
-- [flatpak] GLX: Failed to find a suitable GLXFBConfig
-    - https://github.com/PrismLauncher/PrismLauncher/issues/866
-- [podman] The cgroupv2 manager is set to systemd but there is no systemd user session available
-    - https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-systemd-but-there-is-no-systemd-user-sess
-- [PyTorch] Could not load library libcudnn_cnn_infer.so.8.
-    - https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175139
-- [PyTorch] undefined symbol: iJIT_NotifyEvent
-    - https://github.com/pytorch/pytorch/issues/123097
 
 ### Misc
 
