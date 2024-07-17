@@ -32,6 +32,20 @@ https://github.com/PrismLauncher/PrismLauncher/issues/866
 
 https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-systemd-but-there-is-no-systemd-user-sess
 
+### obs
+
+#### qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
+
+https://wiki.archlinux.org/title/Open_Broadcaster_Software#Wayland
+
+#### (pipewire screen sharing)
+
+https://wiki.archlinux.org/title/PipeWire#WirePlumber
+
+https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
+
+install `wireplumber`
+
 ### PyTorch
 
 #### Could not load library libcudnn_cnn_infer.so.8.
