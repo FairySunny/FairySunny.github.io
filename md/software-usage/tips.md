@@ -32,6 +32,12 @@ https://github.com/PrismLauncher/PrismLauncher/issues/866
 
 https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-systemd-but-there-is-no-systemd-user-sess
 
+#### (x11)
+
+`-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro -v $XAUTHORITY:/root/.Xauthority:ro -e DISPLAY`
+
+or `--net host -v $XAUTHORITY:/root/.Xauthority:ro -e DISPLAY`
+
 ### obs
 
 #### qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
