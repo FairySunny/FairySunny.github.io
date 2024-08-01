@@ -61,3 +61,11 @@ https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175
 #### undefined symbol: iJIT_NotifyEvent
 
 https://github.com/pytorch/pytorch/issues/123097
+
+### Minecraft
+
+#### (wayland)
+
+wayland: https://github.com/BoyOrigin/glfw-wayland
+
+xwayland + nvidia: `__GL_THREADED_OPTIMIZATIONS=0`
