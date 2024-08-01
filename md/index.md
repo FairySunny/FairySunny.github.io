@@ -18,10 +18,9 @@ FairySunny's Developer Notes
 
 ### Tricks
 
+- [Tricks](/md/tricks/tricks.md)
 - [Windows快捷脚本](/md/tricks/windows-scripts.md)
-- [获取百度文库文本](/md/tricks/wenkudown.md)
 - [获取4399游戏swf](/md/tricks/4399swf.md)
-- [移除CSDN“关注博主即可阅读全文”](/md/tricks/csdnshow.md)
 
 ### Web Applications
 
