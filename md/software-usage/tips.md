@@ -1,6 +1,6 @@
 # Tips
 
-> Last Modified: 2024-07
+> Last Modified: 2024-08
 
 ### electron
 
@@ -34,9 +34,9 @@ https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-sy
 
 #### (x11)
 
-`-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro -v $XAUTHORITY:/root/.Xauthority:ro -e DISPLAY`
-
-or `--net host -v $XAUTHORITY:/root/.Xauthority:ro -e DISPLAY`
+- `-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro` or `--net host`
+- `-v $XAUTHORITY:/root/.Xauthority:ro` or (on host) `xhost +`
+- `-e DISPLAY`
 
 ### obs
 
