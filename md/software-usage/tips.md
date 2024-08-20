@@ -52,6 +52,12 @@ https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
 
 install `wireplumber`
 
+### pip
+
+#### ImportError: cannot import name 'packaging' from 'pkg_resources'
+
+https://github.com/aws-neuron/aws-neuron-sdk/issues/893
+
 ### PyTorch
 
 #### Could not load library libcudnn_cnn_infer.so.8.
