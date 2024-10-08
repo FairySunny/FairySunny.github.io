@@ -74,12 +74,13 @@ nmtui
 
 ### gnome桌面
 
+基础:
+
 - baobab (Disk Usage Analyzer)
 - eog (Image Viewer)
 - gdm
 - gnome-control-center (Settings)
 - gnome-disk-utility (Disks)
-- gnome-system-monitor (System Monitor)
 - nautilus (Files)
 - xdg-desktop-portal-gnome
 - xdg-user-dirs-gtk
@@ -87,6 +88,15 @@ nmtui
 - gedit
 - gnome-terminal (Terminal)
 - gnome-tweaks
+
+第三方:
+
+- flathub: com.mattjakeman.ExtensionManager / AUR: extension-manager
+
+通用:
+
+- vlc
+- flathub: io.missioncenter.MissionCenter / AUR: mission-center
 
 #### 启用gdm
 
@@ -209,19 +219,6 @@ options nvidia_drm modeset=1 fbdev=1
 - `paru -S mutter-x11-scaling`
 - `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`
 - 在Settings -> Displays中设置非整数倍缩放
-
-### gnome扩展
-
-#### Option 1: Extension Manager
-
-- AUR: `extension-manager`
-- Flathub: `com.mattjakeman.ExtensionManager`
-
-#### Option 2: Chrome插件
-
-- 安装Chrome插件GNOME Shell integration
-- `paru -S gnome-browser-connector`
-- 在 https://extensions.gnome.org/ 上安装扩展
 
 ### gnome主题
 
