@@ -68,6 +68,12 @@ https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175
 
 https://github.com/pytorch/pytorch/issues/123097
 
+### wine
+
+#### (Chinese fonts)
+
+`LANG=zh_CN.UTF-8`
+
 ### Minecraft
 
 #### (wayland)
