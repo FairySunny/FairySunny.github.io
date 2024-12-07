@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2024-07
+> 上次更新：2024-12
 
 ## 安装系统
 
@@ -110,32 +110,6 @@ nmtui
 - 将`/etc/mkinitcpio.conf`中`HOOKS`后的`kms`去掉
 - `mkinitcpio -P`
 - 重启
-
-#### wayland
-
-> 参考
-> https://wiki.archlinux.org/title/NVIDIA#Wayland
-> https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting
-
-`/etc/modprobe.d/nvidia-drm.conf`:
-
-```
-options nvidia_drm modeset=1 fbdev=1
-```
-
-#### wayland gdm
-
-> 参考
-> https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver
-> https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
-
-- `/etc/modprobe.d/nvidia-power-management.conf`:
-
-    ```
-    options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
-    ```
-
-- `sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service`
 
 ### chrome
 
