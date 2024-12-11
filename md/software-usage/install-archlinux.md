@@ -77,7 +77,7 @@ nmtui
 基础:
 
 - baobab (Disk Usage Analyzer)
-- eog (Image Viewer)
+- loupe (Image Viewer)
 - gdm
 - gnome-control-center (Settings)
 - gnome-disk-utility (Disks)
@@ -86,17 +86,17 @@ nmtui
 - xdg-user-dirs-gtk
 - file-roller (Archive Manager)
 - gedit
-- gnome-terminal (Terminal)
+- gnome-terminal
 - gnome-tweaks
 
-第三方:
+附加:
 
+- resources
 - flathub: com.mattjakeman.ExtensionManager / AUR: extension-manager
 
 通用:
 
 - vlc
-- flathub: io.missioncenter.MissionCenter / AUR: mission-center
 
 #### 启用gdm
 
