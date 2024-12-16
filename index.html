@@ -5,86 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FSDN</title>
     <link rel="icon" href="icon.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.0/github-markdown.min.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/styles/github.min.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-gfm-heading-id@3.1.3/lib/index.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.5/dist/purify.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
+    <script type="module" src="fsdn-show.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        let markdown
+        try {
+          const res = await fetch(`/md/${location.search.substring(1) || 'index'}.md`)
+          if (!res.ok) throw Error(`${res.status} ${res.statusText}`)
+          markdown = await res.text()
+        } catch (e) {
+          alert(e)
+          return
+        }
+
+        const fsdnShowEl = document.createElement('fsdn-show')
+        fsdnShowEl.className = 'markdown'
+        fsdnShowEl.setAttribute('markdown', markdown)
+        document.body.appendChild(fsdnShowEl)
+
+        const tocEl = document.createElement('div')
+        tocEl.className = 'toc'
+        document.body.appendChild(tocEl)
+        tocbot.init({ tocElement: tocEl, contentElement: fsdnShowEl.shadowRoot, scrollSmooth: false })
+        matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => tocbot.refresh())
+
+        function updateScroll() {
+          if (location.hash) {
+            try {
+              const id = decodeURIComponent(location.hash.substring(1))
+              fsdnShowEl.shadowRoot.getElementById(id)?.scrollIntoView()
+            } catch (e) {}
+          }
+        }
+        addEventListener('hashchange', updateScroll)
+        updateScroll()
+
+        const title = fsdnShowEl.shadowRoot.querySelector('h1, h2, h3, h4, h5, h6')?.textContent
+        document.title = title ? `FSDN - ${title}` : 'FSDN'
+
+        fsdnShowEl.shadowRoot.querySelectorAll('a').forEach(el => {
+          if (el.origin == location.origin) {
+            const path = el.pathname.match(/^\/md\/(.+).md$/)?.[1]
+            if (path) {
+              el.href = `?${path}`
+            }
+          }
+        })
+      })
+    </script>
     <style>
       body {
-        margin: 30px 20px;
-        font-family: sans-serif;
+        margin: 0 auto;
+        max-width: 1000px;
+        display: flex;
+        align-items: start;
       }
 
-      .main {
-        margin: 0 auto;
-        min-width: 200px;
-        max-width: 980px;
-        box-sizing: border-box;
-        padding-right: 300px;
+      .markdown {
+        min-width: 0;
+        flex: 1;
       }
 
       .toc {
-        position: fixed;
-        top: 30px;
-        right: calc((100vw - 980px) / 2);
+        position: sticky;
+        top: 0;
         width: 250px;
-        height: calc(100vh - 60px);
-        font-size: 18px;
-        line-height: 30px;
+        padding: 30px 20px;
       }
 
       .toc-list {
         padding-left: 15px;
       }
 
-      .toc-link {
+      .toc-list-item {
+        margin-top: 8px;
+      }
+
+      a.toc-link {
+        font-size: 18px;
         text-decoration: none;
+        font-family: sans-serif;
       }
 
-      .editor {
-        display: flex;
-        justify-content: space-between;
+      .toc-link::before {
+        margin-top: -4px;
       }
 
-      .input,
-      .preview {
-        box-sizing: border-box;
-        width: calc(50% - 10px);
-      }
-
-      .input {
-        padding: 5px 15px;
-        font-size: 15px;
-        font-family: Consolas, "Liberation Mono", Courier, monospace;
-        line-height: 1.5;
-        resize: none;
-        height: 50vh;
-        overflow-y: hidden;
-      }
-
-      .markdown-body .mermaid {
-        padding: 0;
-        background-color: transparent;
+      .toc-link.is-active-link::before {
+        background-color: #77ace9;
       }
 
       @media (prefers-color-scheme: dark) {
         html {
           color-scheme: dark;
-        }
-
-        body {
           background-color: #0d1117;
         }
 
-        .toc {
+        a.toc-link {
           color: #c9d1d9;
         }
 
@@ -93,250 +112,11 @@
         }
       }
 
-      .is-active-link::before {
-        background-color: #77ace9;
-      }
-
-      @media screen and (max-width: 1020px) {
-        .main {
-          padding-right: 0;
-        }
-
+      @media (max-width: 1000px) {
         .toc {
           display: none;
         }
       }
-
-      @media screen and (max-width: 700px) {
-        .editor {
-          flex-direction: column;
-        }
-
-        .input,
-        .preview {
-          width: 100%;
-        }
-
-        .preview {
-          margin-top: 20px;
-        }
-      }
     </style>
   </head>
-  <body>
-    <script>
-      (function(){
-        const darkQuery = matchMedia('(prefers-color-scheme: dark)')
-
-        marked.use({
-          silent: true,
-          breaks: true
-        })
-        marked.use(markedGfmHeadingId.gfmHeadingId())
-
-        function render(text, mainE, tocE, titlePrefix, purify) {
-          mainE.innerHTML = ''
-
-          const el = document.createElement('p')
-          el.className = 'markdown-body'
-          let html = marked.parse(text)
-          if (purify) {
-            html = DOMPurify.sanitize(html)
-          }
-          el.innerHTML = html
-          mainE.appendChild(el)
-
-          el.querySelectorAll('pre code').forEach(e => {
-            const language = (e.classList[0] || '').match(/^language-(.+)/)?.[1]
-            if (hljs.getLanguage(language)) {
-              e.innerHTML = hljs.highlight(e.innerText || '', {
-                language,
-                ignoreIllegals: true
-              }).value
-            }
-          })
-
-          renderMathInElement(el, {
-            delimiters: [
-              { left: '$$', right: '$$', display: true },
-              { left: '$', right: '$', display: false }
-            ],
-            throwOnError: false,
-            strict: false
-          })
-
-          if (tocE) {
-            tocbot.init({
-              tocElement: tocE,
-              contentElement: el
-            })
-          }
-
-          const title = el.querySelector('h1, h2, h3, h4, h5, h6')?.innerText
-          document.title = titlePrefix + (title ? ` - ${title}` : '')
-
-          const mdLinkPrefix = `${location.origin}/md/`
-          const mdLinkSuffix = '.md'
-          el.querySelectorAll('a').forEach(e => {
-            if (e.href.startsWith(mdLinkPrefix) && e.href.endsWith(mdLinkSuffix)) {
-              const name = e.href.substring(mdLinkPrefix.length, e.href.length - mdLinkSuffix.length)
-              e.href = `/index.html?${name}`
-            }
-          })
-
-          const mermaidEs = Array.from(
-            el.querySelectorAll('pre > code.language-mermaid'),
-            e => {
-              const text = e.textContent
-              const pre = e.parentElement
-              if (!pre) return
-              pre.innerHTML = ''
-              pre.textContent = text
-              pre.className = 'mermaid'
-              return pre
-            }
-          ).filter(e => e?.isConnected)
-          if (mermaidEs.length) {
-            import('https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs').then(m => {
-              const mermaid = m.default
-              if (mermaid.isDark != darkQuery.matches) {
-                mermaid.isDark = darkQuery.matches
-                mermaid.initialize({
-                  startOnLoad: false,
-                  theme: mermaid.isDark ? 'dark' : 'default'
-                })
-              }
-              mermaid.run({
-                nodes: mermaidEs,
-                suppressErrors: true
-              })
-            })
-          }
-        }
-
-        const path = location.search.substring(1) || 'index'
-
-        if (path == 'editor') {
-          const editorE = document.createElement('div')
-          editorE.classList.add('editor')
-
-          const inputE = document.createElement('textarea')
-          inputE.classList.add('input')
-          inputE.value = localStorage.getItem('editor-input') || ''
-          editorE.appendChild(inputE)
-
-          const previewE = document.createElement('div')
-          previewE.classList.add('preview')
-          editorE.appendChild(previewE)
-
-          function doRender() {
-            render(inputE.value, previewE, null, 'FSDN Editor')
-          }
-
-          let waiting = null
-
-          function update() {
-            doRender()
-
-            waiting = { updateLater: false }
-            setTimeout(() => {
-              if (waiting.updateLater) {
-                update()
-              } else {
-                waiting = null
-              }
-            }, 500)
-          }
-
-          function updateInputHeight() {
-            // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
-            // .input {
-            //   resize: none;
-            //   height: ...;
-            //   overflow-y: hidden;
-            // }
-            inputE.style.height = ''
-            inputE.style.height = inputE.scrollHeight + 'px'
-          }
-
-          inputE.oninput = () => {
-            updateInputHeight()
-
-            if (!waiting) {
-              update()
-            } else {
-              waiting.updateLater = true
-            }
-          }
-
-          darkQuery.addListener(doRender)
-
-          onunload = () => {
-            localStorage.setItem('editor-input', inputE.value)
-          }
-
-          document.body.appendChild(editorE)
-
-          updateInputHeight()
-          update()
-        } else if (path == 'show') {
-          const mainE = document.createElement('div')
-          mainE.classList.add('main')
-          mainE.style.maxWidth = 'none'
-          mainE.style.paddingRight = '0'
-          document.body.appendChild(mainE)
-
-          let source = null
-          function doRender() {
-            if (source != null) {
-              render(source, mainE, null, '', true)
-            }
-          }
-
-          let resizeObserver = null
-
-          onmessage = e => {
-            if (!/^http(s:\/\/[a-z]+\.sunny\.icu|:\/\/(localhost|127\.0\.0\.1)(:\d+)?)$/.test(e.origin)) {
-              alert('Illegal origin: ' + e.origin)
-              return
-            }
-
-            source = String(e.data)
-            doRender()
-            mainE.querySelectorAll('a').forEach(e => e.target = '_parent')
-
-            if (parent != window && resizeObserver == null) {
-              resizeObserver = new ResizeObserver(() => {
-                parent.postMessage(document.body.scrollHeight + 60, e.origin)
-              })
-              resizeObserver.observe(document.body)
-            }
-          }
-
-          darkQuery.addListener(doRender)
-        } else {
-          fetch(`/md/${path}.md`)
-            .then(r => r.ok ? r.text() : Promise.reject(`${r.status} ${r.statusText}`))
-            .then(text => {
-              const mainE = document.createElement('div')
-              mainE.classList.add('main')
-              document.body.appendChild(mainE)
-
-              const tocE = document.createElement('div')
-              tocE.classList.add('toc')
-              document.body.appendChild(tocE)
-
-              function doRender() {
-                render(text, mainE, tocE, 'FSDN')
-              }
-
-              darkQuery.addListener(doRender)
-
-              doRender()
-            })
-            .catch(e => alert(e))
-        }
-      }())
-    </script>
-  </body>
 </html>

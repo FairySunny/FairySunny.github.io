@@ -24,7 +24,7 @@ FairySunny's Developer Notes
 
 ### Web Applications
 
-- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/index.html?editor) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
+- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/editor.html) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
 - [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [📄Source](https://github.com/FairySunny/SpaceCadetPinball) | [📦Build](https://gitee.com/FairySunny/space-cadet-pinball-web)
 - [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄Source](https://gitee.com/FairySunny/shengmingyouxi-webgl)
 - [NML](https://fairysunny.gitee.io/nml) | [📄Source](https://gitee.com/FairySunny/nml)
