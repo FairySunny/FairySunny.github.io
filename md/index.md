@@ -25,15 +25,15 @@ FairySunny's Developer Notes
 ### Web Applications
 
 - <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/editor.html) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
-- [SpaceCadetPinball](https://fairysunny.gitee.io/space-cadet-pinball-web) | [📄Source](https://github.com/FairySunny/SpaceCadetPinball) | [📦Build](https://gitee.com/FairySunny/space-cadet-pinball-web)
+<!--
 - [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄Source](https://gitee.com/FairySunny/shengmingyouxi-webgl)
 - [NML](https://fairysunny.gitee.io/nml) | [📄Source](https://gitee.com/FairySunny/nml)
 - [Site Not Ready](https://fairysunny.gitee.io/site-not-ready) | [📄Source](https://gitee.com/FairySunny/site-not-ready)
 - [➈ Funky](https://fairysunny.gitee.io/funky) | [📄Source](https://gitee.com/FairySunny/funky)
 - [简易MC合成计算器](https://fairysunny.gitee.io/mc-calc) | [📄Source](https://gitee.com/FairySunny/mc-calc)
-- [挑战网20周年首页](https://fairysunny.gitee.io/tiaozhan-homepage) | [📄Source](https://gitee.com/FairySunny/tiaozhan-homepage)
 - [图寻风格全景图展示](https://fairysunny.gitee.io/tuxun-panorama) | [📄Source](https://gitee.com/FairySunny/tuxun-panorama)
 - [HTML Stuff](https://fairysunny.gitee.io/html-stuff/) | [📄Source](https://gitee.com/FairySunny/html-stuff)
+-->
 
 ### Misc
 
