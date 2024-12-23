@@ -35,8 +35,7 @@
 > 参考 https://wiki.archlinux.org/title/NetworkManager
 
 ```sh
-systemctl enable NetworkManager
-systemctl start NetworkManager
+systemctl enable --now NetworkManager
 nmtui
 ```
 
@@ -76,18 +75,16 @@ nmtui
 
 基础:
 
-- baobab (Disk Usage Analyzer)
-- loupe (Image Viewer)
 - gdm
 - gnome-control-center (Settings)
-- gnome-disk-utility (Disks)
-- nautilus (Files)
-- xdg-desktop-portal-gnome
-- xdg-user-dirs-gtk
-- file-roller (Archive Manager)
-- gedit
-- gnome-terminal
 - gnome-tweaks
+- nautilus (Files)
+- gedit
+- loupe (Image Viewer)
+- file-roller (Archive Manager)
+- gnome-terminal
+- baobab (Disk Usage Analyzer)
+- gnome-disk-utility (Disks)
 
 附加:
 
@@ -96,6 +93,7 @@ nmtui
 
 通用:
 
+- chromium
 - vlc
 
 #### 启用gdm
@@ -110,12 +108,6 @@ nmtui
 - 将`/etc/mkinitcpio.conf`中`HOOKS`后的`kms`去掉
 - `mkinitcpio -P`
 - 重启
-
-### chrome
-
-- package: `chromium`
-- AUR: `google-chrome`
-- Flathub: `com.google.Chrome`
 
 ### 字体
 
@@ -146,14 +138,6 @@ nmtui
 > 参考 https://wiki.archlinux.org/title/IBus
 
 - `sudo pacman -S ibus-rime`
-- 在`/etc/environment`中添加：
-
-    ```
-    GTK_IM_MODULE=ibus
-    QT_IM_MODULE=ibus
-    XMODIFIERS=@im=ibus
-    ```
-
 - （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
 - 按F4选择简体
 
