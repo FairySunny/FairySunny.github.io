@@ -52,6 +52,12 @@ https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
 
 install `wireplumber`
 
+### conda
+
+#### (micromamba environment variables)
+
+https://github.com/mamba-org/mamba/issues/1881
+
 ### pip
 
 #### ImportError: cannot import name 'packaging' from 'pkg_resources'
@@ -67,6 +73,14 @@ https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175
 #### undefined symbol: iJIT_NotifyEvent
 
 https://github.com/pytorch/pytorch/issues/123097
+
+### gtk
+
+#### (PyGObject)
+
+https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/girepository.c?ref_type=heads
+
+`GI_TYPELIB_PATH=/usr/lib/girepository-1.0`
 
 ### wine
 
