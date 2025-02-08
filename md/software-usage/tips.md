@@ -1,12 +1,14 @@
 # Tips
 
-> Last Modified: 2024-08
+> Last Modified: 2025-02
 
 ### electron
 
 #### GPU process isn't usable. Goodbye.
 
 https://github.com/Automattic/simplenote-electron/issues/3096
+
+`--no-sandbox`
 
 ### ssh
 
@@ -32,6 +34,8 @@ https://github.com/PrismLauncher/PrismLauncher/issues/866
 
 https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-systemd-but-there-is-no-systemd-user-sess
 
+`loginctl enable-linger`
+
 #### (x11)
 
 - `-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro` or `--net host`
@@ -43,6 +47,8 @@ https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-sy
 #### qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 
 https://wiki.archlinux.org/title/Open_Broadcaster_Software#Wayland
+
+install `qt6-wayland`
 
 #### (pipewire screen sharing)
 
@@ -70,9 +76,13 @@ https://github.com/aws-neuron/aws-neuron-sdk/issues/893
 
 https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175139
 
+`LD_LIBRARY_PATH=/path/to/cuda/lib64`
+
 #### undefined symbol: iJIT_NotifyEvent
 
 https://github.com/pytorch/pytorch/issues/123097
+
+install `mkl=2024.0.0`
 
 ### gtk
 
@@ -89,6 +99,12 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 `LANG=zh_CN.UTF-8`
 
 ### Minecraft
+
+#### Failed to get OpenAL attributes
+
+https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
+
+`ALSOFT_DRIVERS=pulse`
 
 #### (wayland)
 
