@@ -84,6 +84,20 @@ https://github.com/pytorch/pytorch/issues/123097
 
 install `mkl=2024.0.0`
 
+#### (torch.inverse) RuntimeError: lazy wrapper should be called at most once
+
+https://github.com/pytorch/pytorch/issues/90613
+
+`torch.inverse(torch.eye(1, device='cuda'))`
+
+### cuda
+
+#### (glibc 2.41)
+
+https://forums.developer.nvidia.com/t/error-exception-specification-is-incompatible-for-cospi-sinpi-cospif-sinpif-with-glibc-2-41/323591/3
+
+https://github.com/gentoo/gentoo/commit/8914dbf1a4d1b4a4f687e114d25193596d3e3944
+
 ### gtk
 
 #### (PyGObject)
@@ -111,3 +125,11 @@ https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
 wayland: https://github.com/BoyOrigin/glfw-wayland
 
 xwayland + nvidia: `__GL_THREADED_OPTIMIZATIONS=0`
+
+### misc
+
+#### (glibc 2.41) cannot enable executable stack as shared object requires: Invalid argument
+
+https://forums.developer.nvidia.com/t/linux-gblic-2-41-unable-to-load-library-libnvinfer-builder-resource-so-10-7-0/323729
+
+`patchelf --clear-execstack <filename>`

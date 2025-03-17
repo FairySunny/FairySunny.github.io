@@ -31,7 +31,7 @@ References:
 
 [title](https://www.example.com)
 
-![alt text](https://gkder.ucas.ac.cn/assets/files/2023-02-18/1676687154-957480-1676655967159.jpg)
+![alt text](https://foruda.gitee.com/avatar/1680592789363171979/2238128_thhh_sunny_1680592789.png)
 
 | Syntax      | Description |
 | ----------- | ----------- |
