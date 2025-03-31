@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2024-12
+> 上次更新：2025-03
 
 ## 安装系统
 
@@ -75,6 +75,7 @@ nmtui
 
 基础:
 
+- gnome-shell
 - gdm
 - gnome-control-center (Settings)
 - gnome-tweaks
