@@ -112,6 +112,12 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 
 `LANG=zh_CN.UTF-8`
 
+### MeshLab
+
+#### (buffer object rendering)
+
+Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
+
 ### Minecraft
 
 #### Failed to get OpenAL attributes
