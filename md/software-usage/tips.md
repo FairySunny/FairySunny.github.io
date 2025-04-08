@@ -1,6 +1,6 @@
 # Tips
 
-> Last Modified: 2025-02
+> Last Modified: 2025-04
 
 ### electron
 
@@ -115,6 +115,8 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 ### MeshLab
 
 #### (buffer object rendering)
+
+https://www.youtube.com/watch?v=ZbyzQHo666E
 
 Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
 
