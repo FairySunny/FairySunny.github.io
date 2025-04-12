@@ -106,6 +106,12 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 
 `GI_TYPELIB_PATH=/usr/lib/girepository-1.0`
 
+### qemu
+
+#### (linux mouse)
+
+kernel config: `CONFIG_MOUSE_PS2_VMMOUSE=y`
+
 ### wine
 
 #### (Chinese fonts)
