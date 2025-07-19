@@ -1,7 +1,7 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2025-03
+> 上次更新：2025-07
 
 ## 安装系统
 
@@ -95,7 +95,7 @@ nmtui
 通用:
 
 - chromium
-- vlc
+- vlc vlc-plugin-ffmpeg
 
 #### 启用gdm
 
