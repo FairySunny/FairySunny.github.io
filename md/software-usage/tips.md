@@ -1,6 +1,6 @@
 # Tips
 
-> Last Modified: 2025-04
+> Last Modified: 2025-07
 
 ### electron
 
@@ -89,6 +89,12 @@ install `mkl=2024.0.0`
 https://github.com/pytorch/pytorch/issues/90613
 
 `torch.inverse(torch.eye(1, device='cuda'))`
+
+#### nvrtc: error: invalid value for --gpu-architecture (-arch)
+
+https://github.com/pytorch/pytorch/issues/87595
+
+use pytorch >= 1.13.0
 
 ### cuda
 
