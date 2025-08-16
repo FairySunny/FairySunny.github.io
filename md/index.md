@@ -24,7 +24,7 @@ FairySunny's Developer Notes
 
 ### Web Applications
 
-- <a href="https://fsdn.sunny.icu/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.sunny.icu/editor.html) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
+- <a href="https://fsdn.fairysunny.com/" onclick="alert('害搁这原地TP呢')">FSDN</a> | [FSDN Editor](https://fsdn.fairysunny.com/editor.html) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
 <!--
 - [WebGL生命游戏](https://fairysunny.gitee.io/shengmingyouxi-webgl) | [📄Source](https://gitee.com/FairySunny/shengmingyouxi-webgl)
 - [NML](https://fairysunny.gitee.io/nml) | [📄Source](https://gitee.com/FairySunny/nml)
