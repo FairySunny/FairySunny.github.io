@@ -98,11 +98,13 @@ use pytorch >= 1.13.0
 
 ### cuda
 
-#### (glibc 2.41)
+#### (glibc 2.41/2.42)
 
 https://forums.developer.nvidia.com/t/error-exception-specification-is-incompatible-for-cospi-sinpi-cospif-sinpif-with-glibc-2-41/323591/3
 
-https://github.com/gentoo/gentoo/commit/8914dbf1a4d1b4a4f687e114d25193596d3e3944
+https://github.com/gentoo/gentoo/blob/master/dev-util/nvidia-cuda-toolkit/files/nvidia-cuda-toolkit-glibc-2.41-r1.patch
+
+https://github.com/gentoo/gentoo/blob/master/dev-util/nvidia-cuda-toolkit/files/nvidia-cuda-toolkit-glibc-2.42.patch
 
 ### gtk
 
