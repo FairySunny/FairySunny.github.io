@@ -8,13 +8,13 @@ FairySunny's Developer Notes
 
 ### Software
 
-- [Tips](/md/software-usage/tips.md)
-- [Arch Linux](/md/software-usage/install-archlinux.md)
+- [Tips](/md/software/tips.md)
+- [Arch Linux](/md/software/archlinux.md)
 
 ### Server
 
-- [Nginx](/md/server-maintenance/nginx.md)
-- [Certbot](/md/server-maintenance/certbot.md)
+- [Nginx](/md/server/nginx.md)
+- [Certbot](/md/server/certbot.md)
 
 ### Web Apps
 
