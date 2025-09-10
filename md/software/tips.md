@@ -1,14 +1,31 @@
 # Tips
 
-> Last Modified: 2025-07
+> Last Modified: 2025-09
 
-### electron
+### glibc
 
-#### GPU process isn't usable. Goodbye.
+#### (2.41) cannot enable executable stack as shared object requires: Invalid argument
 
-https://github.com/Automattic/simplenote-electron/issues/3096
+https://forums.developer.nvidia.com/t/linux-gblic-2-41-unable-to-load-library-libnvinfer-builder-resource-so-10-7-0/323729
 
-`--no-sandbox`
+`patchelf --clear-execstack <filename>`
+
+### nvidia
+
+#### (xorg: screen tearing)
+
+https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#Avoid_screen_tearing
+
+`/etc/X11/xorg.conf.d/20-nvidia.conf` :
+
+```
+Section "Screen"
+    Identifier     "Screen0"
+    Option         "ForceFullCompositionPipeline" "on"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
+EndSection
+```
 
 ### ssh
 
@@ -36,11 +53,33 @@ https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-sy
 
 `loginctl enable-linger`
 
-#### (x11)
+#### (xorg)
 
 - `-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro` or `--net host`
 - `-v $XAUTHORITY:/root/.Xauthority:ro` or (on host) `xhost +`
 - `-e DISPLAY`
+
+### electron
+
+#### (electron & chromium: `Alt+Tab` scrolling)
+
+https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
+
+install GNOME extension `Alt+Tab Scroll Workaround`
+
+#### GPU process isn't usable. Goodbye.
+
+https://github.com/Automattic/simplenote-electron/issues/3096
+
+`--no-sandbox`
+
+### vscode
+
+#### (visual-studio-code-bin: folder default app)
+
+https://www.reddit.com/r/gnome/comments/8gtmkw/how_to_change_what_application_open_folders/
+
+`gio mime inode/directory org.gnome.Nautilus.desktop`
 
 ### obs
 
@@ -60,7 +99,7 @@ install `wireplumber`
 
 ### conda
 
-#### (micromamba environment variables)
+#### (micromamba: environment variables)
 
 https://github.com/mamba-org/mamba/issues/1881
 
@@ -146,12 +185,4 @@ https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
 
 wayland: https://github.com/BoyOrigin/glfw-wayland
 
-xwayland + nvidia: `__GL_THREADED_OPTIMIZATIONS=0`
-
-### misc
-
-#### (glibc 2.41) cannot enable executable stack as shared object requires: Invalid argument
-
-https://forums.developer.nvidia.com/t/linux-gblic-2-41-unable-to-load-library-libnvinfer-builder-resource-so-10-7-0/323729
-
-`patchelf --clear-execstack <filename>`
+nvidia xwayland error: `__GL_THREADED_OPTIMIZATIONS=0`
