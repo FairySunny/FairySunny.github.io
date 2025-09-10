@@ -53,11 +53,25 @@ https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-sy
 
 `loginctl enable-linger`
 
+#### (rootless host loopback)
+
+https://docs.podman.io/en/latest/markdown/podman-run.1.html#network-mode-net
+
+- `--net slirp4netns:allow_host_loopback=true`
+- access `10.0.2.2`
+
 #### (xorg)
 
 - `-v /tmp/.X11-unix/:/tmp/.X11-unix/:ro` or `--net host`
 - `-v $XAUTHORITY:/root/.Xauthority:ro` or (on host) `xhost +`
 - `-e DISPLAY`
+
+#### (cuda)
+
+https://archlinux.org/packages/?name=nvidia-container-toolkit
+
+- install `nvidia-container-toolkit`
+- `--gpus all`
 
 ### electron
 
