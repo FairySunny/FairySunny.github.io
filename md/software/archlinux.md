@@ -1,15 +1,11 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2025-07
+> 上次更新：2025-09
 
 ## 安装系统
 
 > 参考 https://wiki.archlinux.org/title/Installation_guide
-
-### 安装时联网后获取ip地址
-
-- `dhcpcd`
 
 ### 预安装
 
@@ -54,7 +50,7 @@ nmtui
 
 ### paru
 
-- AUR: `paru-bin`
+- AUR: paru-bin
 
 ## 基础问题
 
@@ -105,10 +101,7 @@ nmtui
 
 > 参考 https://wiki.archlinux.org/title/NVIDIA
 
-- `sudo pacman -S nvidia`
-- 将`/etc/mkinitcpio.conf`中`HOOKS`后的`kms`去掉
-- `mkinitcpio -P`
-- 重启
+- nvidia-open / nvidia
 
 ### 字体
 
@@ -118,19 +111,19 @@ nmtui
 > https://wiki.archlinux.org/title/Fonts
 > https://wiki.archlinux.org/title/Microsoft_fonts
 
-- `paru -S ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other`
+- AUR: ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other
 - 可能失败
 
 #### Option 2: Win11字体（手动）
 
-- `paru -S ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other`
+- AUR: ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other
 - 需要按照`PKGBUILD`中的提示从Windows拷贝字体
 
 #### Option 3: adobe-source-han
 
 > 参考 https://wiki.archlinux.org/title/Localization/Chinese
 
-- `sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts`
+- adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
 
 ### 输入法
 
@@ -138,7 +131,7 @@ nmtui
 
 > 参考 https://wiki.archlinux.org/title/IBus
 
-- `sudo pacman -S ibus-rime`
+- ibus-rime
 - （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
 - 按F4选择简体
 
@@ -146,8 +139,7 @@ nmtui
 
 > 参考 https://wiki.archlinux.org/title/Fcitx5
 
-- `sudo pacman -S fcitx5-im`
-- `sudo pacman -S fcitx5-chinese-addons`
+- fcitx5-im fcitx5-chinese-addons
 - 在`/etc/environment`中添加：
 
     ```
@@ -175,7 +167,7 @@ nmtui
 
 > 参考 https://aur.archlinux.org/packages/mutter-x11-scaling
 
-- `paru -S mutter-x11-scaling`
+- AUR: mutter-x11-scaling
 - `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`
 - 在Settings -> Displays中设置非整数倍缩放
 
@@ -185,34 +177,6 @@ nmtui
 - 在 https://gnome-look.org/ 上下载主题
 - 将主题解压到`~/.themes`中，将图标（以及光标）解压到`~/.icons`中
 - 在Tweaks -> Appearance中设置主题与图标
-
-### 屏幕撕裂（X11）
-
-> 参考 https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#Avoid_screen_tearing
-
-- 创建`/etc/X11/xorg.conf.d/20-nvidia.conf`：
-
-    ```
-    Section "Screen"
-        Identifier     "Screen0"
-        Option         "ForceFullCompositionPipeline" "on"
-        Option         "AllowIndirectGLXProtocol" "off"
-        Option         "TripleBuffer" "on"
-    EndSection
-    ```
-
-### chrome、vscode等应用切换时滚动问题（X11）
-
-> 参考 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
-
-- 安装gnome扩展Alt+Tab Scroll Workaround
-
-### 打开文件夹默认应用为vscode而非files（visual-studio-code-bin）
-
-> 参考 https://www.reddit.com/r/gnome/comments/8gtmkw/how_to_change_what_application_open_folders/
-
-- `gio mime inode/directory`查看打开文件夹默认应用
-- `gio mime inode/directory org.gnome.Nautilus.desktop`，会修改配置文件`~/.config/mimeapps.list`
 
 ### 蓝牙
 
