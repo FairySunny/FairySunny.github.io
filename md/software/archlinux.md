@@ -1,7 +1,6 @@
 # 安装及配置Arch Linux
 
 > 参考：https://wiki.archlinux.org/
-> 上次更新：2025-09
 
 ## 安装系统
 
@@ -28,12 +27,24 @@
 
 ### 网络
 
-> 参考 https://wiki.archlinux.org/title/NetworkManager
+#### Option 1: NetworkManager
 
-```sh
-systemctl enable --now NetworkManager
-nmtui
-```
+> 2025-09
+> https://wiki.archlinux.org/title/NetworkManager
+
+- `systemctl enable --now NetworkManager`
+- `nmtui`
+
+#### Option 2: systemd-networkd
+
+> 2025-09
+> https://wiki.archlinux.org/title/Systemd-networkd
+> https://wiki.archlinux.org/title/Systemd-resolved
+
+- `systemctl enable --now systemd-resolved`
+- `ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf`
+- `ln -s /usr/lib/systemd/network/89-ethernet.network.example /etc/systemd/network/89-ethernet.network`
+- `systemctl enable --now systemd-networkd`
 
 ### 创建用户
 
