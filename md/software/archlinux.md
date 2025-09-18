@@ -1,10 +1,10 @@
 # 安装及配置Arch Linux
 
-> 参考：https://wiki.archlinux.org/
+> https://wiki.archlinux.org/
 
 ## 安装系统
 
-> 参考 https://wiki.archlinux.org/title/Installation_guide
+> https://wiki.archlinux.org/title/Installation_guide
 
 ### 预安装
 
@@ -30,6 +30,7 @@
 #### Option 1: NetworkManager
 
 > 2025-09
+>
 > https://wiki.archlinux.org/title/NetworkManager
 
 - `systemctl enable --now NetworkManager`
@@ -38,7 +39,9 @@
 #### Option 2: systemd-networkd
 
 > 2025-09
+>
 > https://wiki.archlinux.org/title/Systemd-networkd
+>
 > https://wiki.archlinux.org/title/Systemd-resolved
 
 - `systemctl enable --now systemd-resolved`
@@ -67,7 +70,7 @@
 
 ### 禁用蜂鸣器
 
-> 参考 https://wiki.archlinux.org/title/Kernel_module
+> https://wiki.archlinux.org/title/Kernel_module
 
 - 在`/etc/modprobe.d/nobeep.conf`里添加`blacklist pcspkr`
 
@@ -110,7 +113,7 @@
 
 ### nvidia驱动
 
-> 参考 https://wiki.archlinux.org/title/NVIDIA
+> https://wiki.archlinux.org/title/NVIDIA
 
 - nvidia-open / nvidia
 
@@ -118,8 +121,8 @@
 
 #### Option 1: Win11字体（自动）
 
-> 参考
 > https://wiki.archlinux.org/title/Fonts
+>
 > https://wiki.archlinux.org/title/Microsoft_fonts
 
 - AUR: ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other
@@ -132,7 +135,7 @@
 
 #### Option 3: adobe-source-han
 
-> 参考 https://wiki.archlinux.org/title/Localization/Chinese
+> https://wiki.archlinux.org/title/Localization/Chinese
 
 - adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
 
@@ -140,7 +143,7 @@
 
 #### Option 1: IBus (Rime)
 
-> 参考 https://wiki.archlinux.org/title/IBus
+> https://wiki.archlinux.org/title/IBus
 
 - ibus-rime
 - （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
@@ -148,7 +151,7 @@
 
 #### Option 2: Fcitx5
 
-> 参考 https://wiki.archlinux.org/title/Fcitx5
+> https://wiki.archlinux.org/title/Fcitx5
 
 - fcitx5-im fcitx5-chinese-addons
 - 在`/etc/environment`中添加：
@@ -176,7 +179,7 @@
 
 #### Option 2: 非整数倍缩放 (X11)
 
-> 参考 https://aur.archlinux.org/packages/mutter-x11-scaling
+> https://aur.archlinux.org/packages/mutter-x11-scaling
 
 - AUR: mutter-x11-scaling
 - `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`

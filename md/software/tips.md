@@ -1,7 +1,5 @@
 # Tips
 
-> Last Modified: 2025-09
-
 ### glibc
 
 #### (2.41) cannot enable executable stack as shared object requires: Invalid argument

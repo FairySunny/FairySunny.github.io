@@ -1,6 +1,7 @@
 # Nginx
 
 > 参考：https://nginx.org/en/docs/
+>
 > 上次更新：2024-6
 
 ## 变量
