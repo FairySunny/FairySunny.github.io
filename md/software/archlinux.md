@@ -141,28 +141,11 @@
 
 ### 输入法
 
-#### Option 1: IBus (Rime)
-
 > https://wiki.archlinux.org/title/IBus
 
 - ibus-rime
 - （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
 - 按F4选择简体
-
-#### Option 2: Fcitx5
-
-> https://wiki.archlinux.org/title/Fcitx5
-
-- fcitx5-im fcitx5-chinese-addons
-- 在`/etc/environment`中添加：
-
-    ```
-    GTK_IM_MODULE=fcitx
-    QT_IM_MODULE=fcitx
-    XMODIFIERS=@im=fcitx
-    ```
-
-- 在Fcitx 5 Configuration中配置（在Settings -> Keyboard -> Keyboard Shortcuts中将Typing中的快捷键设置为Disabled才可在Fcitx 5 Configuration中将输入法切换设置为Super+Space）
 
 ### gnome配置
 
