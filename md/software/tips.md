@@ -167,6 +167,12 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 
 ### qemu
 
+#### (sway cursor)
+
+https://github.com/swaywm/sway/issues/6581
+
+`WLR_NO_HARDWARE_CURSORS=1`
+
 #### (linux mouse)
 
 kernel config: `CONFIG_MOUSE_PS2_VMMOUSE=y`
