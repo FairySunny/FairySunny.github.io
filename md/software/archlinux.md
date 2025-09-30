@@ -81,7 +81,15 @@
 
 ## 桌面配置
 
-### gnome桌面
+### NVIDIA 驱动
+
+> https://wiki.archlinux.org/title/NVIDIA
+
+- nvidia-open / nvidia
+
+### GNOME 桌面
+
+> 2025-09
 
 基础:
 
@@ -107,19 +115,44 @@
 - chromium
 - vlc vlc-plugin-ffmpeg
 
-#### 启用gdm
+#### 启用 GDM
 
 - `sudo systemctl enable gdm.service`
 
-### nvidia驱动
+#### 配置
 
-> https://wiki.archlinux.org/title/NVIDIA
+- 在 Settings -> Power 以及 Settings -> Privacy -> Screen Lock 中设置屏幕行为
+- 在 Settings -> Keyboard -> Keyboard Shortcuts 中设置快捷键
+    - 将 Navigation -> Switch windows 设置为 <kbd>Alt</kbd> + <kbd>Tab</kbd> 会自动禁用 Navigation -> Switch applications
 
-- nvidia-open / nvidia
+#### 缩放
+
+##### Option 1: 字体缩放
+
+- Tweaks -> Fonts -> Scaling Factor
+
+##### Option 2: 非整数倍缩放 (Xorg)
+
+> （上次更新：很久以前）
+>
+> https://aur.archlinux.org/packages/mutter-x11-scaling
+
+- AUR: mutter-x11-scaling
+- `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`
+- 在 Settings -> Displays 中设置非整数倍缩放
+
+#### 主题
+
+> （上次更新：很久以前）
+
+- Extension: User Themes
+- 在 https://gnome-look.org/ 上下载主题
+- 将主题解压到 `~/.themes` 中，将图标（以及光标）解压到 `~/.icons` 中
+- 在 Tweaks -> Appearance 中设置主题与图标
 
 ### 字体
 
-#### Option 1: Win11字体（自动）
+#### Option 1: Win11 字体（自动）
 
 > https://wiki.archlinux.org/title/Fonts
 >
@@ -128,10 +161,10 @@
 - AUR: ttf-ms-win11-auto ttf-ms-win11-auto-zh_cn ttf-ms-win11-auto-other
 - 可能失败
 
-#### Option 2: Win11字体（手动）
+#### Option 2: Win11 字体（手动）
 
 - AUR: ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other
-- 需要按照`PKGBUILD`中的提示从Windows拷贝字体
+- 需要按照 `PKGBUILD` 中的提示从 Windows 拷贝字体
 
 #### Option 3: adobe-source-han
 
@@ -141,39 +174,24 @@
 
 ### 输入法
 
+#### Option 1: IBus (GNOME)
+
+> 2025-09
+>
 > https://wiki.archlinux.org/title/IBus
 
 - ibus-rime
-- （登出或重启后）在Settings -> Keyboard -> Input Sources中添加Chinese (Rime)
-- 按F4选择简体
+- 登出或重启后，在 Settings -> Keyboard -> Input Sources 中添加 Chinese (Rime)
+- 按 <kbd>F4</kbd> 选择简体
 
-### gnome配置
+#### Option 2: Fcitx5
 
-- 在Settings -> Power以及Settings -> Privacy -> Screen Lock中设置屏幕行为
-- 在Settings -> Mouse & Touchpad以及Tweaks -> Keyboard & Mouse中设置触控板行为
-- 在Settings -> Keyboard -> Keyboard Shortcuts中设置快捷键
-    - 将Switch windows设置为Alt+Tab会自动将Switch applications设置为Disabled
+> 2025-09
+>
+> https://wiki.archlinux.org/title/Fcitx5
 
-### 缩放
-
-#### Option 1: 字体缩放
-
-- Tweaks -> Fonts -> Scaling Factor
-
-#### Option 2: 非整数倍缩放 (X11)
-
-> https://aur.archlinux.org/packages/mutter-x11-scaling
-
-- AUR: mutter-x11-scaling
-- `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`
-- 在Settings -> Displays中设置非整数倍缩放
-
-### gnome主题
-
-- 在Extensions中打开User Themes
-- 在 https://gnome-look.org/ 上下载主题
-- 将主题解压到`~/.themes`中，将图标（以及光标）解压到`~/.icons`中
-- 在Tweaks -> Appearance中设置主题与图标
+- fcitx5-im fcitx5-chinese-addons
+- ? (Xorg) `GTK_IM_MODULE=fcitx` `QT_IM_MODULE=fcitx` `XMODIFIERS=@im=fcitx`
 
 ### 蓝牙
 
