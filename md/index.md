@@ -10,6 +10,7 @@ FairySunny's Developer Notes
 
 - [Tips](/md/software/tips.md)
 - [Arch Linux](/md/software/archlinux.md)
+- [ALFS](/md/software/alfs.md)
 
 ### Server
 
