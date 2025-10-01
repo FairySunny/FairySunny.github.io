@@ -167,11 +167,22 @@ https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/gi
 
 ### qemu
 
+#### (virtio-vga-gl)
+
+> 2025-09
+
+install:
+
+- `qemu-hw-display-virtio-vga`
+- `qemu-hw-display-virtio-vga-gl`
+- `qemu-hw-display-virtio-gpu`
+- `qemu-hw-display-virtio-gpu-gl`
+
 #### (sway cursor)
 
-https://github.com/swaywm/sway/issues/6581
+> 2025-09 https://github.com/swaywm/sway/issues/6581
 
-`WLR_NO_HARDWARE_CURSORS=1`
+env: `WLR_NO_HARDWARE_CURSORS=1`
 
 #### (linux mouse)
 
