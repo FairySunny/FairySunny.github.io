@@ -1,6 +1,6 @@
 # ALFS
 
-> - 2025-09
+> - 2025-10
 > - LFS: 12.4-systemd
 > - JHALFS: 69eb5e74e91728788726261b2e509d178eb7697c
 >
@@ -25,7 +25,6 @@
 - File system
 - Umask (022)
 - Mount (root:root & 755)
-- /etc/bash.bashrc -> /etc/bash.bashrc.NOUSE
 
 ### Files
 
@@ -38,8 +37,7 @@ https://mirrors.ustc.edu.cn/lfs/lfs-packages/12.4/
 
 ## Finishing up
 
-- Mount
-- Chroot
+- Mount & Chroot
 - Password
 - Network
 - GRUB
