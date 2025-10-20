@@ -89,7 +89,7 @@
 
 ### GNOME 桌面
 
-> 2025-09
+> 2025-10
 
 基础:
 
@@ -108,7 +108,7 @@
 附加:
 
 - resources
-- flathub: com.mattjakeman.ExtensionManager / AUR: extension-manager
+- extension-manager
 
 通用:
 
