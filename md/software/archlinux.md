@@ -107,13 +107,13 @@
 
 附加:
 
-- resources
 - extension-manager
 
 通用:
 
 - chromium
 - vlc vlc-plugin-ffmpeg
+- mission-center
 
 #### 启用 GDM
 
