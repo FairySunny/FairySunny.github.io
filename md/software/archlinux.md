@@ -108,6 +108,7 @@
 附加:
 
 - extension-manager
+- gnome-shell-extension-appindicator
 
 通用:
 
