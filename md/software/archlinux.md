@@ -89,7 +89,7 @@
 
 ### GNOME 桌面
 
-> 2025-10
+> 2025-11
 
 基础:
 
@@ -112,7 +112,7 @@
 
 通用:
 
-- chromium
+- firefox / chromium
 - vlc vlc-plugin-ffmpeg
 - mission-center
 
