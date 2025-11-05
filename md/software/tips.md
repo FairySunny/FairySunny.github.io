@@ -31,18 +31,6 @@ EndSection
 
 https://serverfault.com/questions/1058473/unable-to-ssh-into-server
 
-### node.js
-
-#### ERR_OSSL_EVP_UNSUPPORTED
-
-https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
-
-### flatpak
-
-#### GLX: Failed to find a suitable GLXFBConfig
-
-https://github.com/PrismLauncher/PrismLauncher/issues/866
-
 ### podman
 
 #### The cgroupv2 manager is set to systemd but there is no systemd user session available
@@ -70,6 +58,22 @@ https://archlinux.org/packages/?name=nvidia-container-toolkit
 
 - install `nvidia-container-toolkit`
 - `--gpus all`
+
+### flatpak
+
+#### GLX: Failed to find a suitable GLXFBConfig
+
+https://github.com/PrismLauncher/PrismLauncher/issues/866
+
+### 如意玲珑
+
+#### (ibus)
+
+> 2025-11
+
+https://bbs.deepin.org/post/292565
+
+env: `GTK_IM_MODULE=xim`
 
 ### electron
 
@@ -108,6 +112,63 @@ https://wiki.archlinux.org/title/PipeWire#WirePlumber
 https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
 
 install `wireplumber`
+
+### qemu
+
+#### (virtio-vga-gl)
+
+> 2025-09
+
+install:
+
+- `qemu-hw-display-virtio-vga`
+- `qemu-hw-display-virtio-vga-gl`
+- `qemu-hw-display-virtio-gpu`
+- `qemu-hw-display-virtio-gpu-gl`
+
+#### (sway cursor)
+
+> 2025-09 https://github.com/swaywm/sway/issues/6581
+
+env: `WLR_NO_HARDWARE_CURSORS=1`
+
+#### (linux mouse)
+
+kernel config: `CONFIG_MOUSE_PS2_VMMOUSE=y`
+
+### wine
+
+#### (Chinese fonts)
+
+`LANG=zh_CN.UTF-8`
+
+### MeshLab
+
+#### (buffer object rendering)
+
+https://www.youtube.com/watch?v=ZbyzQHo666E
+
+Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
+
+### Minecraft
+
+#### Failed to get OpenAL attributes
+
+https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
+
+`ALSOFT_DRIVERS=pulse`
+
+#### (wayland)
+
+wayland: https://github.com/BoyOrigin/glfw-wayland
+
+nvidia xwayland error: `__GL_THREADED_OPTIMIZATIONS=0`
+
+### node.js
+
+#### ERR_OSSL_EVP_UNSUPPORTED
+
+https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported
 
 ### conda
 
@@ -164,54 +225,3 @@ https://github.com/gentoo/gentoo/blob/master/dev-util/nvidia-cuda-toolkit/files/
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/girepository.c?ref_type=heads
 
 `GI_TYPELIB_PATH=/usr/lib/girepository-1.0`
-
-### qemu
-
-#### (virtio-vga-gl)
-
-> 2025-09
-
-install:
-
-- `qemu-hw-display-virtio-vga`
-- `qemu-hw-display-virtio-vga-gl`
-- `qemu-hw-display-virtio-gpu`
-- `qemu-hw-display-virtio-gpu-gl`
-
-#### (sway cursor)
-
-> 2025-09 https://github.com/swaywm/sway/issues/6581
-
-env: `WLR_NO_HARDWARE_CURSORS=1`
-
-#### (linux mouse)
-
-kernel config: `CONFIG_MOUSE_PS2_VMMOUSE=y`
-
-### wine
-
-#### (Chinese fonts)
-
-`LANG=zh_CN.UTF-8`
-
-### MeshLab
-
-#### (buffer object rendering)
-
-https://www.youtube.com/watch?v=ZbyzQHo666E
-
-Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
-
-### Minecraft
-
-#### Failed to get OpenAL attributes
-
-https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
-
-`ALSOFT_DRIVERS=pulse`
-
-#### (wayland)
-
-wayland: https://github.com/BoyOrigin/glfw-wayland
-
-nvidia xwayland error: `__GL_THREADED_OPTIMIZATIONS=0`
