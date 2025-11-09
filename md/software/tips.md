@@ -65,6 +65,14 @@ https://archlinux.org/packages/?name=nvidia-container-toolkit
 
 https://github.com/PrismLauncher/PrismLauncher/issues/866
 
+#### Failed to get the ownership of org.kde.StatusNotifierItem-2-1
+
+> 2025-11
+
+https://github.com/flathub/im.riot.Riot/issues/100
+
+flatpak override: `own-name=org.kde.StatusNotifierItem-2-1`
+
 ### 如意玲珑
 
 #### (ibus)
