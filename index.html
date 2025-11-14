@@ -12,7 +12,8 @@
       document.addEventListener('DOMContentLoaded', async () => {
         let markdown
         try {
-          const res = await fetch(`/md/${location.search.substring(1) || 'index'}.md`)
+          const path = location.search.substring(1)
+          const res = await fetch(path ? `/md/${path}.md` : '/README.md')
           if (!res.ok) throw Error(`${res.status} ${res.statusText}`)
           markdown = await res.text()
         } catch (e) {
