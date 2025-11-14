@@ -128,19 +128,15 @@
 
 #### 缩放
 
+> 2025-11
+
 ##### Option 1: 字体缩放
 
 - Tweaks -> Fonts -> Scaling Factor
 
-##### Option 2: 非整数倍缩放 (Xorg)
+##### Option 2: 缩放
 
-> （上次更新：很久以前）
->
-> https://aur.archlinux.org/packages/mutter-x11-scaling
-
-- AUR: mutter-x11-scaling
-- `gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"`
-- 在 Settings -> Displays 中设置非整数倍缩放
+- Settings -> Displays -> Scale
 
 #### 主题
 
