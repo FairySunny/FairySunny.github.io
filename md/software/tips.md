@@ -162,6 +162,14 @@ Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
 
 #### Failed to get OpenAL attributes
 
+> 2025-11
+
+##### Option 1:
+
+? install `pipewire-pulse`
+
+##### Option 2:
+
 https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
 
 `ALSOFT_DRIVERS=pulse`
