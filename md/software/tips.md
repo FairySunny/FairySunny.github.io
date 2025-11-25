@@ -224,6 +224,14 @@ https://github.com/pytorch/pytorch/issues/87595
 
 use pytorch >= 1.13.0
 
+#### (torch.utils.cpp_extension.BuildExtension & torch.utils.cpp_extension.load CUDA)
+
+> 2025-11
+
+https://github.com/pytorch/pytorch/blob/main/torch/utils/cpp_extension.py
+
+env: `CUDA_HOME=/path/to/cuda` `CC=gcc-11` `CXX=g++-11`
+
 ### cuda
 
 #### (glibc 2.41/2.42)
