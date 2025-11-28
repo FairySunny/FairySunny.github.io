@@ -41,7 +41,16 @@ https://superuser.com/questions/1788594/podman-the-cgroupv2-manager-is-set-to-sy
 
 #### (rootless host loopback)
 
+> 2025-11
+
 https://docs.podman.io/en/latest/markdown/podman-run.1.html#network-mode-net
+
+##### Option 1: pasta
+
+- `--net pasta:-T,<tcp port>,-U,<udp port>`
+- access `127.0.0.1:<port>`
+
+##### Option 2: slirp4netns
 
 - `--net slirp4netns:allow_host_loopback=true`
 - access `10.0.2.2`
