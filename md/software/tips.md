@@ -230,7 +230,10 @@ use pytorch >= 1.13.0
 
 https://github.com/pytorch/pytorch/blob/main/torch/utils/cpp_extension.py
 
-env: `CUDA_HOME=/path/to/cuda` `CC=gcc-11` `CXX=g++-11`
+env:
+
+- `CUDA_HOME=/path/to/cuda`
+- `CC=gcc-11` `CXX=g++-11` (CUDA 11.7/11.8)
 
 ### cuda
 
