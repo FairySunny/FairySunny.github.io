@@ -24,7 +24,7 @@ function render(markdown, sanitize) {
   markdownEl.querySelectorAll('pre code').forEach(codeEl => {
     const language = (codeEl.classList[0] || '').match(/^language-(.+)/)?.[1]
     if (hljs.getLanguage(language)) {
-      codeEl.innerHTML = hljs.highlight(codeEl.textContent || '', { language, ignoreIllegals: true }).value
+      codeEl.innerHTML = hljs.highlight(codeEl.textContent, { language, ignoreIllegals: true }).value
     }
   })
 
@@ -39,12 +39,16 @@ function render(markdown, sanitize) {
 
   markdownEl.querySelectorAll('pre > code.language-mermaid').forEach(codeEl => {
     const preEl = codeEl.parentElement
-    if (!preEl) return
+    if (!preEl) {
+      return
+    }
+
     preEl.textContent = codeEl.textContent
     preEl.className = 'mermaid'
   })
+
   const mermaidEls = markdownEl.querySelectorAll('pre.mermaid')
-  if (mermaidEls.length) {
+  if (mermaidEls.length > 0) {
     importMermaid().then(mermaid => {
       const dark = matchMedia('(prefers-color-scheme: dark)').matches
       if (mermaid.dark != dark) {
@@ -55,6 +59,7 @@ function render(markdown, sanitize) {
           theme: dark ? 'dark' : 'default'
         })
       }
+
       mermaidEls.forEach((mermaidEl, idx) => {
         mermaid.render(`mermaid-${idx}`, mermaidEl.textContent)
           .then(({ svg }) => { mermaidEl.innerHTML = svg })
@@ -83,20 +88,28 @@ const style = `
 `
 
 class FsdnShow extends HTMLElement {
+  constructor() {
+    super()
+
+    const shadow = this.attachShadow({ mode: 'open' })
+
+    const styleEl = document.createElement('style')
+    styleEl.textContent = style
+
+    shadow.appendChild(styleEl)
+
+    this.darkQuery = matchMedia('(prefers-color-scheme: dark)')
+  }
+
   update() {
-    if (this.shadowRoot == null) return
     this.shadowRoot.querySelector('.markdown-body')?.remove()
-    const markdown = this.getAttribute('markdown') || ''
-    this.shadowRoot.appendChild(render(markdown, this.getAttribute('sanitize') != null))
+
+    const markdownEl = render(this.getAttribute('markdown') || '', this.getAttribute('sanitize') != null)
+
+    this.shadowRoot.appendChild(markdownEl)
   }
 
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'open' })
-    const styleEl = document.createElement('style')
-    styleEl.textContent = style
-    shadow.appendChild(styleEl)
-    this.update()
-    this.darkQuery = matchMedia('(prefers-color-scheme: dark)')
     this.darkQuery.listener = () => this.update()
     this.darkQuery.addEventListener('change', this.darkQuery.listener)
   }
