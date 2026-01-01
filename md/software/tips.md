@@ -68,6 +68,12 @@ https://archlinux.org/packages/?name=nvidia-container-toolkit
 - install `nvidia-container-toolkit`
 - `--gpus all`
 
+#### (cuda) Failed to initialize NVML: Driver/library version mismatch
+
+> 2025-12
+
+`echo /usr/lib > /etc/ld.so.conf.d/00-nvidia-container.conf && ldconfig`
+
 ### flatpak
 
 #### GLX: Failed to find a suitable GLXFBConfig
@@ -169,6 +175,26 @@ Tools -> Options -> `MeshLab::System::maxGPUMemDedicatedToGeometry` = `3500`
 
 ### Minecraft
 
+#### (ime bug)
+
+https://bugs.mojang.com/browse/MC/issues/MC-258708
+
+https://bugs.mojang.com/browse/MC/issues/MC-122477
+
+#### (1.7.10/1.12.2 ime)
+
+https://github.com/kappa-maintainer/KokoaLinux
+
+#### (system glfw)
+
+> 2025-12
+
+jvm args: `-Dorg.lwjgl.glfw.libname=/path/to/libglfw.so`
+
+#### (nvidia xwayland)
+
+? env: `__GL_THREADED_OPTIMIZATIONS=0`
+
 #### Failed to get OpenAL attributes
 
 > 2025-11
@@ -186,8 +212,6 @@ https://wiki.archlinux.org/title/Minecraft#Audio_stutters_on_PipeWire
 #### (wayland)
 
 wayland: https://github.com/BoyOrigin/glfw-wayland
-
-nvidia xwayland error: `__GL_THREADED_OPTIMIZATIONS=0`
 
 ### node.js
 
