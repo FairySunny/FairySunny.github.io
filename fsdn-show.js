@@ -4,10 +4,6 @@ import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3.2.3/dist/purify.
 import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/es/highlight.min.js'
 import renderMathInElement from 'https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.mjs'
 
-async function importMermaid() {
-  return (await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs')).default
-}
-
 marked.use({ silent: true, breaks: true })
 marked.use(gfmHeadingId())
 
@@ -21,9 +17,9 @@ function render(markdown, sanitize) {
   }
   markdownEl.innerHTML = html
 
-  markdownEl.querySelectorAll('pre code').forEach(codeEl => {
-    const language = (codeEl.classList[0] || '').match(/^language-(.+)/)?.[1]
-    if (hljs.getLanguage(language)) {
+  markdownEl.querySelectorAll('pre > code').forEach(codeEl => {
+    const language = codeEl.classList[0]?.match(/^language-(.+)/)?.[1]
+    if (hljs.getLanguage(language) != null) {
       codeEl.innerHTML = hljs.highlight(codeEl.textContent, { language, ignoreIllegals: true }).value
     }
   })
@@ -39,33 +35,19 @@ function render(markdown, sanitize) {
 
   markdownEl.querySelectorAll('pre > code.language-mermaid').forEach(codeEl => {
     const preEl = codeEl.parentElement
-    if (!preEl) {
+    if (preEl == null) {
       return
     }
 
-    preEl.textContent = codeEl.textContent
-    preEl.className = 'mermaid'
+    preEl.classList.add('mermaid')
+
+    const mermaidShowEl = document.createElement('mermaid-show')
+    mermaidShowEl.setAttribute('source', codeEl.textContent)
+    codeEl.replaceWith(mermaidShowEl)
   })
 
-  const mermaidEls = markdownEl.querySelectorAll('pre.mermaid')
-  if (mermaidEls.length > 0) {
-    importMermaid().then(mermaid => {
-      const dark = matchMedia('(prefers-color-scheme: dark)').matches
-      if (mermaid.dark != dark) {
-        mermaid.dark = dark
-        mermaid.initialize({
-          startOnLoad: false,
-          suppressErrorRendering: true,
-          theme: dark ? 'dark' : 'default'
-        })
-      }
-
-      mermaidEls.forEach((mermaidEl, idx) => {
-        mermaid.render(`mermaid-${idx}`, mermaidEl.textContent)
-          .then(({ svg }) => { mermaidEl.innerHTML = svg })
-          .catch(() => {})
-      })
-    })
+  if (markdownEl.querySelector('mermaid-show') != null) {
+    import('./mermaid-show.js')
   }
 
   return markdownEl
@@ -81,7 +63,7 @@ const style = `
   padding: 30px 20px;
 }
 
-.markdown-body .mermaid {
+.markdown-body pre.mermaid {
   padding: 0;
   background-color: transparent;
 }
@@ -97,29 +79,14 @@ class FsdnShow extends HTMLElement {
     styleEl.textContent = style
 
     shadow.appendChild(styleEl)
-
-    this.darkQuery = matchMedia('(prefers-color-scheme: dark)')
   }
 
-  update() {
+  attributeChangedCallback() {
     this.shadowRoot.querySelector('.markdown-body')?.remove()
 
     const markdownEl = render(this.getAttribute('markdown') || '', this.getAttribute('sanitize') != null)
 
     this.shadowRoot.appendChild(markdownEl)
-  }
-
-  connectedCallback() {
-    this.darkQuery.listener = () => this.update()
-    this.darkQuery.addEventListener('change', this.darkQuery.listener)
-  }
-
-  disconnectedCallback() {
-    this.darkQuery.removeEventListener('change', this.darkQuery.listener)
-  }
-
-  attributeChangedCallback() {
-    this.update()
   }
 
   static observedAttributes = ['markdown', 'sanitize']
