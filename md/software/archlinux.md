@@ -189,7 +189,7 @@
 
 - fcitx5-im fcitx5-chinese-addons
 - ? (Xorg) `GTK_IM_MODULE=fcitx` `QT_IM_MODULE=fcitx` `XMODIFIERS=@im=fcitx`
-- 禁用 Settings -> Keyboard -> Keyboard Shortcuts -> Typing -> Switch to next input source
+- (GNOME) 禁用 Settings -> Keyboard -> Keyboard Shortcuts -> Typing -> Switch to next input source
 
 ### 蓝牙
 
