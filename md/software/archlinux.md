@@ -124,7 +124,7 @@
 
 - 在 Settings -> Power 以及 Settings -> Privacy -> Screen Lock 中设置屏幕行为
 - 在 Settings -> Keyboard -> Keyboard Shortcuts 中设置快捷键
-    - 将 Navigation -> Switch windows 设置为 <kbd>Alt</kbd> + <kbd>Tab</kbd> 会自动禁用 Navigation -> Switch applications
+    - 设置 Navigation -> Switch windows 会自动禁用 Navigation -> Switch applications
 
 #### 缩放
 
@@ -183,12 +183,13 @@
 
 #### Option 2: Fcitx5
 
-> 2025-09
+> 2026-03
 >
 > https://wiki.archlinux.org/title/Fcitx5
 
 - fcitx5-im fcitx5-chinese-addons
 - ? (Xorg) `GTK_IM_MODULE=fcitx` `QT_IM_MODULE=fcitx` `XMODIFIERS=@im=fcitx`
+- 禁用 Settings -> Keyboard -> Keyboard Shortcuts -> Typing -> Switch to next input source
 
 ### 蓝牙
 
