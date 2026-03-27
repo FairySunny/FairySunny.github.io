@@ -89,7 +89,7 @@
 
 ### GNOME 桌面
 
-> 2025-11
+> 2026-03
 
 基础:
 
@@ -107,6 +107,7 @@
 
 附加:
 
+- Flathub: Refine
 - extension-manager
 - gnome-shell-extension-appindicator
 
@@ -128,7 +129,7 @@
 
 #### 缩放
 
-> 2025-11
+> 2026-03
 
 ##### Option 1: 字体缩放
 
@@ -136,6 +137,7 @@
 
 ##### Option 2: 缩放
 
+- Refine -> Shell & Compositor -> Fractional Scaling Options
 - Settings -> Displays -> Scale
 
 #### 主题
