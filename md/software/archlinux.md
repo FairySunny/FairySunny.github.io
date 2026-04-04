@@ -129,13 +129,14 @@
 
 #### 缩放
 
-> 2026-03
+> 2026-04
 
-##### Option 1: 字体缩放
+##### Option 1
 
-- Tweaks -> Fonts -> Scaling Factor
+- (GTK) Tweaks -> Fonts -> Scaling Factor
+- (Qt) env: `QT_AUTO_SCREEN_SCALE_FACTOR=0` `QT_ENABLE_HIGHDPI_SCALING=0` `QT_SCALE_FACTOR=<scaling factor>`
 
-##### Option 2: 缩放
+##### Option 2
 
 - Refine -> Shell & Compositor -> Fractional Scaling Options
 - Settings -> Displays -> Scale
@@ -190,7 +191,7 @@
 > https://wiki.archlinux.org/title/Fcitx5
 
 - fcitx5-im fcitx5-chinese-addons
-- ? (Xorg) `GTK_IM_MODULE=fcitx` `QT_IM_MODULE=fcitx` `XMODIFIERS=@im=fcitx`
+- ? (Xorg) env: `GTK_IM_MODULE=fcitx` `QT_IM_MODULE=fcitx` `XMODIFIERS=@im=fcitx`
 - (GNOME) 禁用 Settings -> Keyboard -> Keyboard Shortcuts -> Typing -> Switch to next input source
 - (GNOME) Extension: kimpanel
 
