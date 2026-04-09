@@ -268,6 +268,22 @@ env:
 - `CUDA_HOME=/path/to/cuda`
 - `CC=gcc-11` `CXX=g++-11` (CUDA 11.7/11.8)
 
+#### (torch.inverse) RuntimeError: CUDA error: operation not supported when calling \`cusparseCreate(handle)\`
+
+> 2026-04
+
+https://github.com/facebookresearch/pytorch3d/issues/1399
+
+PyPI: `torch==1.11.0+cu113`
+
+#### (tensorboard) AttributeError: module 'distutils' has no attribute 'version'
+
+> 2026-04
+
+https://github.com/pytorch/pytorch/issues/69894
+
+PyPI: `setuptools==59.5.0`
+
 ### cuda
 
 #### (glibc 2.41/2.42)
