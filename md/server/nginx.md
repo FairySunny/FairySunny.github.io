@@ -22,7 +22,7 @@
 
 ## 反向代理
 
-```
+```nginx
 proxy_pass ...;
 # 以下内容可以写在单独文件中并include
 proxy_set_header Host $host;
@@ -35,7 +35,7 @@ proxy_set_header X-Forwarded-Proto $scheme;
 
 ## websocket反向代理
 
-```
+```nginx
 proxy_pass ...;
 # 以下内容可以写在单独文件中并include
 proxy_http_version 1.1;
@@ -63,7 +63,7 @@ proxy_set_header Host $host;
 
 ### snippets/https-example-com.conf
 
-```
+```nginx
 ssl_certificate "/etc/nginx/cert/example.com/fullchain.pem";
 ssl_certificate_key "/etc/nginx/cert/example.com/privkey.pem";
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -83,7 +83,7 @@ resolver_timeout 10s;
 
 ### sites-enabled/www.on
 
-```
+```nginx
 server {
     server_name _;
     listen 80 default_server;
@@ -150,7 +150,7 @@ server {
 
 ### sites-enabled/test.on
 
-```
+```nginx
 server {
     server_name test.example.com;
     listen 443 ssl;
@@ -173,7 +173,7 @@ server {
 
 ## whoami - 显示请求者信息的简易测试网站
 
-```
+```nginx
 location / {
     add_header Content-Type 'text/html; charset=utf-8';
     return 200 '<h1>whoami6</h1><p><b>IP:</b> $remote_addr</p><p><b>Port:</b> $remote_port</p><p><b>UA:</b> $http_user_agent</p>';

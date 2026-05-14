@@ -8,7 +8,7 @@
 
 ## Dockerfile（可选）
 
-```Dockerfile
+```dockerfile
 FROM python:3.9-alpine
 
 # 若在国外环境则去掉换源；若无需插件则将 certbot-dns-插件 改为 certbot
