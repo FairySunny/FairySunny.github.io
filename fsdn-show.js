@@ -4,11 +4,34 @@ import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3.2.3/dist/purify.
 import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/es/highlight.min.js'
 import { hljsLanguagesUrl, hljsExtraAliases } from './hljs-extra-aliases.js'
 import renderMathInElement from 'https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.mjs'
+const katexFontsUrl = 'https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/fonts/'
 
 marked.use({ silent: true, breaks: true })
 marked.use(gfmHeadingId())
 
 const hljsLanguages = new Map(hljsExtraAliases.flatMap(names => names.map(name => [name, names[0]])))
+
+for (const [name, variants] of [
+  ['AMS', ['Regular']],
+  ['Caligraphic', ['Bold', 'Regular']],
+  ['Fraktur', ['Bold', 'Regular']],
+  ['Main', ['Bold', 'BoldItalic', 'Italic', 'Regular']],
+  ['Math', ['BoldItalic', 'Italic']],
+  ['SansSerif', ['Bold', 'Italic', 'Regular']],
+  ['Script', ['Regular']],
+  ...[1, 2, 3, 4].map(i => [`Size${i}`, ['Regular']]),
+  ['Typewriter', ['Regular']]
+]) {
+  for (const variant of variants) {
+    const family = `KaTeX_${name}`
+    const src = [['woff2', 'woff2'], ['woff', 'woff'], ['ttf', 'truetype']]
+      .map(([ext, format]) => `url('${katexFontsUrl}${family}-${variant}.${ext}') format('${format}')`)
+      .join(',')
+    const weight = variant.includes('Bold') ? 'bold' : 'normal'
+    const style = variant.includes('Italic') ? 'italic' : 'normal'
+    document.fonts.add(new FontFace(family, src, { weight, style }))
+  }
+}
 
 function render(markdown, sanitize) {
   const markdownEl = document.createElement('p')
@@ -90,19 +113,17 @@ class FsdnShow extends HTMLElement {
   constructor() {
     super()
 
-    const shadow = this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: 'open' })
 
     const styleEl = document.createElement('style')
     styleEl.textContent = style
-
-    shadow.appendChild(styleEl)
+    this.shadowRoot.appendChild(styleEl)
   }
 
   attributeChangedCallback() {
     this.shadowRoot.querySelector('.markdown-body')?.remove()
 
-    const markdownEl = render(this.getAttribute('markdown') || '', this.getAttribute('sanitize') != null)
-
+    const markdownEl = render(this.getAttribute('markdown') ?? '', this.hasAttribute('sanitize'))
     this.shadowRoot.appendChild(markdownEl)
   }
 

@@ -28,7 +28,7 @@ class MermaidShow extends HTMLElement {
   async update() {
     updateTheme()
 
-    const source = this.getAttribute('source') || ''
+    const source = this.getAttribute('source') ?? ''
     let svg
     try {
       svg = (await mermaid.render('mermaid', source)).svg

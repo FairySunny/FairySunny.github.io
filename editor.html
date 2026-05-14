@@ -84,7 +84,7 @@
         }
       })
 
-      inputEl.value = localStorage.getItem('markdown') || ''
+      inputEl.value = localStorage.getItem('markdown') ?? ''
       updateInputHeight()
       updatePreview()
     </script>
