@@ -2,10 +2,13 @@ import * as marked from 'https://cdn.jsdelivr.net/npm/marked@15.0.4/lib/marked.e
 import { gfmHeadingId } from 'https://cdn.jsdelivr.net/npm/marked-gfm-heading-id@4.1.1/+esm'
 import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3.2.3/dist/purify.es.mjs'
 import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/es/highlight.min.js'
+import { hljsLanguagesUrl, hljsExtraAliases } from './hljs-extra-aliases.js'
 import renderMathInElement from 'https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/contrib/auto-render.mjs'
 
 marked.use({ silent: true, breaks: true })
 marked.use(gfmHeadingId())
+
+const hljsLanguages = new Map(hljsExtraAliases.flatMap(names => names.map(name => [name, names[0]])))
 
 function render(markdown, sanitize) {
   const markdownEl = document.createElement('p')
@@ -19,8 +22,20 @@ function render(markdown, sanitize) {
 
   markdownEl.querySelectorAll('pre > code').forEach(codeEl => {
     const language = codeEl.classList[0]?.match(/^language-(.+)/)?.[1]
-    if (hljs.getLanguage(language) != null) {
+    const highlight = () => {
       codeEl.innerHTML = hljs.highlight(codeEl.textContent, { language, ignoreIllegals: true }).value
+    }
+
+    if (hljs.getLanguage(language) != null) {
+      highlight()
+    } else if (hljsLanguages.has(language)) {
+      const languageName = hljsLanguages.get(language)
+      import(`${hljsLanguagesUrl}${languageName}.min.js`).then(({ default: languageModule }) => {
+        if (hljs.getLanguage(language) == null) {
+          hljs.registerLanguage(languageName, languageModule)
+        }
+        highlight()
+      })
     }
   })
 
@@ -55,8 +70,10 @@ function render(markdown, sanitize) {
 
 const style = `
 @import url('https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.css');
-@import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/styles/github.min.css') (prefers-color-scheme: light);
-@import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/styles/github-dark.min.css') (prefers-color-scheme: dark);
+@import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/styles/github.min.css')
+  (prefers-color-scheme: light);
+@import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.0/build/styles/github-dark.min.css')
+  (prefers-color-scheme: dark);
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css');
 
 .markdown-body {
