@@ -237,7 +237,7 @@ https://github.com/aws-neuron/aws-neuron-sdk/issues/893
 
 https://discuss.pytorch.org/t/could-not-load-library-libcudnn-cnn-infer-so-8/175139
 
-`LD_LIBRARY_PATH=/path/to/cuda/lib64`
+`ln -s libnvrtc.so.<version> /path/to/env/lib/libnvrtc.so`
 
 #### undefined symbol: iJIT_NotifyEvent
 
