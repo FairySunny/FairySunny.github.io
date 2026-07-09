@@ -296,6 +296,12 @@ https://github.com/gentoo/gentoo/blob/master/dev-util/nvidia-cuda-toolkit/files/
 
 ### gtk
 
+#### assertion 'GDK_IS_DISPLAY (display)' failed
+
+> 2026-06
+
+? env: `unset GDK_BACKEND` or `GDK_BACKEND=x11`
+
 #### (PyGObject)
 
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/girepository.c?ref_type=heads
