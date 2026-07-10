@@ -19,11 +19,11 @@ FairySunny's Developer Notes
 
 ### Web Apps
 
-- [FSDN](https://fsdn.fairysunny.com/) | [FSDN Editor](https://fsdn.fairysunny.com/editor.html) | [📄Source](https://github.com/FairySunny/FairySunny.github.io)
+- [FSDN](https://fairysunny.github.io/) | [FSDN Editor](https://fairysunny.github.io/fsdn-show/fsdn-editor.html) | [📄FSDN source](https://github.com/FairySunny/FairySunny.github.io) | [📄fsdn-show source](https://github.com/FairySunny/fsdn-show)
 
 ### Misc
 
-- [Markdown Demo](/md/misc/markdown-test.md)
+- [Markdown demo](/md/misc/markdown-test.md)
 
 ## About
 
