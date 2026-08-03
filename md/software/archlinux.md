@@ -166,11 +166,49 @@
 - AUR: ttf-ms-win11 ttf-ms-win11-zh_cn ttf-ms-win11-other
 - 需要按照 `PKGBUILD` 中的提示从 Windows 拷贝字体
 
-#### Option 3: adobe-source-han
+#### Option 3: noto-fonts-cjk
 
-> https://wiki.archlinux.org/title/Localization/Chinese
+> 2026-08
+>
+> https://wiki.archlinux.org/title/Localization/Simplified_Chinese#Chinese_characters_displayed_as_variant_(Japanese)_glyphs
 
-- adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+- noto-fonts-cjk
+
+`/etc/fonts/conf.d/64-language-selector-prefer.conf` :
+
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias>
+    <family>sans-serif</family>
+    <prefer>
+      <family>Noto Sans</family>
+      <family>Noto Sans CJK SC</family>
+      <family>Noto Sans CJK TC</family>
+      <family>Noto Sans CJK JP</family>
+    </prefer>
+  </alias>
+  <alias>
+    <family>serif</family>
+    <prefer>
+      <family>Noto Serif</family>
+      <family>Noto Serif CJK SC</family>
+      <family>Noto Serif CJK TC</family>
+      <family>Noto Serif CJK JP</family>
+    </prefer>
+  </alias>
+  <alias>
+    <family>monospace</family>
+    <prefer>
+      <family>Noto Sans Mono</family>
+      <family>Noto Sans Mono CJK SC</family>
+      <family>Noto Sans Mono CJK TC</family>
+      <family>Noto Sans Mono CJK JP</family>
+    </prefer>
+  </alias>
+</fontconfig>
+```
 
 ### 输入法
 
