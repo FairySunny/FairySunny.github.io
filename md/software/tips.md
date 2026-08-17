@@ -88,6 +88,16 @@ https://github.com/flathub/im.riot.Riot/issues/100
 
 flatpak override: `own-name=org.kde.StatusNotifierItem-2-1`
 
+#### Decompressed delta part exceeds configured limit of ... bytes
+
+> 2026-08
+
+https://github.com/flatpak/flatpak/issues/6770
+
+https://github.com/ostreedev/ostree/issues/3635
+
+`--no-static-deltas`
+
 ### 如意玲珑
 
 #### (ibus)
