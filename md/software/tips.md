@@ -241,6 +241,14 @@ https://github.com/mamba-org/mamba/issues/1881
 
 https://github.com/aws-neuron/aws-neuron-sdk/issues/893
 
+#### ModuleNotFoundError: No module named 'pkg_resources'
+
+> 2026-09
+
+https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources/79888812#79888812
+
+install `setuptools=81.0.0`
+
 ### PyTorch
 
 #### Could not load library libcudnn_cnn_infer.so.8.
