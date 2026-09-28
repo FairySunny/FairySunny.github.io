@@ -168,9 +168,11 @@
 
 #### Option 3: noto-fonts-cjk
 
-> 2026-08
+> 2026-09
 >
 > https://wiki.archlinux.org/title/Localization/Simplified_Chinese#Chinese_characters_displayed_as_variant_(Japanese)_glyphs
+> 
+> https://github.com/flathub/com.qq.QQ/issues/21
 
 - noto-fonts-cjk
 
@@ -209,6 +211,11 @@
   </alias>
 </fontconfig>
 ```
+
+(flatpak):
+
+- `/etc/fonts/conf.d/64-language-selector-prefer.conf` -> `~/.config/fontconfig/conf.d/`
+- override `Context.filesystems=xdg-config/fontconfig:ro`
 
 ### 输入法
 
