@@ -89,7 +89,7 @@
 
 ### GNOME 桌面
 
-> 2026-03
+> 2026-10
 
 基础:
 
@@ -107,7 +107,7 @@
 
 附加:
 
-- Flathub: Refine
+- refine
 - extension-manager
 - gnome-shell-extension-appindicator
 
