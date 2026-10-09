@@ -320,6 +320,14 @@ https://github.com/gentoo/gentoo/blob/master/dev-util/nvidia-cuda-toolkit/files/
 
 ? env: `unset GDK_BACKEND` or `GDK_BACKEND=x11`
 
+#### Error 71 (Protocol error) dispatching to Wayland display
+
+> 2026-10
+
+https://github.com/tauri-apps/tauri/issues/10702
+
+? env: `WEBKIT_DISABLE_DMABUF_RENDERER=1`
+
 #### (PyGObject)
 
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/girepository.c?ref_type=heads
