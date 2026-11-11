@@ -302,6 +302,14 @@ https://github.com/pytorch/pytorch/issues/69894
 
 PyPI: `setuptools==59.5.0`
 
+### Pillow
+
+#### (PIL.Image.fromarray) TypeError: Cannot handle this data type: (1, 1, 3), |i1
+
+> 2026-10
+
+PyPI: `pillow==11.3.0`
+
 ### cuda
 
 #### (glibc 2.41/2.42)
