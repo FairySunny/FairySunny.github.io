@@ -341,3 +341,11 @@ https://github.com/tauri-apps/tauri/issues/10702
 https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/main/girepository/girepository.c?ref_type=heads
 
 `GI_TYPELIB_PATH=/usr/lib/girepository-1.0`
+
+### wgpu
+
+#### (wgpu-hal 0.19.5 wgpu_hal::gles::egl) EGL 'eglCreateContext' code 0x3004: dri2_create_context
+
+> 2026-10
+
+? `wgpu-hal/src/gles/egl.rs`: `needs_robustness = true` -> `needs_robustness = false`
